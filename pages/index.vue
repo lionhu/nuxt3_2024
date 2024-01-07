@@ -11,6 +11,8 @@ definePageMeta({ layout: 'page' })
 useHead({ titleTemplate: '', title: awesome?.name || 'Nuxt 3 Awesome Starter' })
 
 const { socket } = useSocket()
+const { t } = useLang()
+
 const showLoading = () => {
   const dataLoading = useState<boolean>('dataLoading')
   dataLoading.value = true
@@ -133,12 +135,12 @@ const attrs = ref([
 
 <template>
   <LayoutPageWrapper>
-    <div class="app">
-      <FullCalendar :options="calendarOptions" />
-    </div>
     <LayoutPageSectionHero>
       <h1>{{ $t('pages.index.header') }}</h1>
     </LayoutPageSectionHero>
+    <div class="app">
+      <FullCalendar :options="calendarOptions" />
+    </div>
     <WidgetGsapProfileList />
     <WidgetGsapGallery />
     <LayoutPageSection>
@@ -150,6 +152,9 @@ const attrs = ref([
 
         <div class="h-screen">
           <UButton @click="showLoading">Button</UButton>
+          <div class="w-full h-[120px] mt-12 text-black">
+            <h1>hello {{ t('title') }}</h1>
+          </div>
           <h1 class="text-4xl font-nunito text-slate-900">Nunito</h1>
           <h1 class="text-4xl font-bitter text-slate-900">Bitter</h1>
           <h1 class="text-4xl font-ubuntu text-slate-900">Ubuntu</h1>
