@@ -1,0 +1,31 @@
+// variables
+:root {
+  // layouts > page > content
+  --layout-page-content-min-height: calc(100vh - 42px);
+  --green: #28a92b;
+  --red: #ff0358;
+  --orange: #f9a71c;
+  --black: #000;
+  --white: #fff;
+  --lightGray: #d7e1e7;
+  --gray: #9db6c3;
+  --darkGray: #374045;
+  --blue: #00ffff;
+  --conatinerXPadding: 1.5rem;
+  --unit: 16px;
+
+  // layouts > page > landing
+  --conatinerXPadding: 1.5rem;
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --conatinerXPadding: 3rem;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --conatinerXPadding: 2rem;
+  }
+}
