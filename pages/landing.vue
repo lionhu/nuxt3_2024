@@ -50,7 +50,6 @@ onMounted(() => {
 <template>
   <LayoutPageWrapper class="bg-purple-600">
     <div class="bg"></div>
-
     <LayoutPageSectionSplit>
       <template #left>
         <div>

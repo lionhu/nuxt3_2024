@@ -2,7 +2,7 @@
 <template>
   <section
     ref="sectionRef"
-    class="bg-slate-400 flex place-content-start items-center overflow-hidden relative"
+    class="flex place-content-start items-center overflow-hidden relative"
   >
     <slot name="main" />
     <div class="w-1/2 relative h-screen flex flex-col place-content-center p-4">
