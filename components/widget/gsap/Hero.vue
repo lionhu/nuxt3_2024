@@ -57,7 +57,7 @@ onMounted(() => {
       class="h-screen w-full flex flex-col place-content-center items-center relative px-32 text-white snap-start overflow-hidden"
     >
       <div class="bg bg-pink-600 absolute inset-0 z-[-1]">
-        <img src="/images/kaneda_bike.png" alt="" />
+        <img src="/images/kaneda_bike.png" class="mx-auto" />
       </div>
       <h2 class="uppercase font-ubuntu text-[64px] font-bold mb-4"></h2>
       <h4 class="uppercase font-ubuntu font-bold bg-black px-4 mb-4">akira</h4>
