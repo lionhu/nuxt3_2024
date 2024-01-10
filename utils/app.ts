@@ -1,20 +1,8 @@
-// import FullCalendar from '@fullcalendar/vue3'
-// import interactionPlugin from '@fullcalendar/interaction'
-// import dayGridPlugin from '@fullcalendar/daygrid'
-// import listPlugin from '@fullcalendar/list'
-// import timeGridPlugin from '@fullcalendar/timegrid'
-// import googleCalendarPlugin from '@fullcalendar/google-calendar'
 import { LanguageManager } from './lang'
-export { gsap, ScrollTrigger, Flip } from 'gsap/all'
+export { gsap, ScrollTrigger, Flip, Observer, TextPlugin } from 'gsap/all'
+export { SplitText } from 'gsap-trial/SplitText'
 
-// export {
-//   FullCalendar,
-//   interactionPlugin,
-//   dayGridPlugin,
-//   listPlugin,
-//   timeGridPlugin,
-//   googleCalendarPlugin,
-// }
+
 export function AppSetup() {
   // use language manager
   const languageManager = LanguageManager()
