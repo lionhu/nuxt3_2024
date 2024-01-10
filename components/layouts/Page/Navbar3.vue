@@ -34,7 +34,9 @@ onMounted(() => {
     tlNav.to('.menu ul li a', { color: 'black', duration: 0.25 }, 0)
   }
   const mobileMenuInteraction = () => {
+    const tl = gsap.timeline()
     const toggle = document.querySelector('.toggle')
+    const logo = document.querySelector('.logo')
     const menu = document.querySelector('.menu')
     if (toggle && menu) {
       toggle.addEventListener('click', () => {
@@ -42,7 +44,15 @@ onMounted(() => {
         menu.classList.toggle('active')
       })
     }
+    tl.fromTo(
+      logo,
+      { yPercent: -200, opacity: 0 },
+      { yPercent: 0, opacity: 1, duration: 1 },
+      2,
+    )
 
+    tl.play()
+    
     if ($screen.higherThan('md', $screen.current.value) && props.switchNav) {
       toggleHeader()
     }

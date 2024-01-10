@@ -12,7 +12,7 @@ const menus = computed(
 onMounted(() => {
   const toggleHeader = () => {
     // if (width.value < 800) return
-    const tl_nav = gsap.timeline({
+    const tlNav = gsap.timeline({
       scrollTrigger: {
         trigger: 'header',
         start: 'top top',
@@ -21,12 +21,12 @@ onMounted(() => {
       },
     })
 
-    tl_nav.to('header', {
+    tlNav.to('header', {
       backgroundColor: 'white',
       opacity: 0.8,
       duration: 0.25,
     })
-    tl_nav.to('.menu ul li a', { color: 'black', duration: 0.25 }, 0)
+    tlNav.to('.menu ul li a', { color: 'black', duration: 0.25 }, 0)
   }
   const mobileMenuInteraction = () => {
     const toggle = document.querySelector('.toggle')
