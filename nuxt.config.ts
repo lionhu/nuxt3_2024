@@ -13,6 +13,7 @@ export default defineNuxtConfig({
     // global transition
     pageTransition: { name: 'page', mode: 'out-in' },
     layoutTransition: { name: 'layout', mode: 'out-in' },
+    link: [{ rel: 'manifest', href: '/manifest.webmanifest' }],
   },
 
   // typescripts
@@ -50,6 +51,7 @@ export default defineNuxtConfig({
     ],
     'nuxt-split-type',
     '@samk-dev/nuxt-vcalendar',
+    '@vite-pwa/nuxt',
   ],
 
   css: [
@@ -78,6 +80,91 @@ export default defineNuxtConfig({
 
   imports: {
     dirs: [resolve('./stores'), '~/stores', '~/utils'],
+  },
+  pwa: {
+    registerType: 'autoUpdate',
+    manifest: {
+      name: 'Nichiei Service',
+      short_name: 'NichieiServices',
+      description: 'description',
+      start_url: '/',
+      lang: 'ja',
+      display_override: ['fullscreen', 'minimal-ui'],
+      display: 'standalone',
+      theme_color: '#ffffff',
+      icons: [
+        {
+          src: 'icon-48x48.png',
+          sizes: '48x48',
+          type: 'image/png',
+        },
+        {
+          src: 'icon-72x72.png',
+          sizes: '72x72',
+          type: 'image/png',
+        },
+        {
+          src: 'icon-128x128.png',
+          sizes: '128x128',
+          type: 'image/png',
+        },
+        {
+          src: 'icon-284x284.png',
+          sizes: '284x284',
+          type: 'image/png',
+        },
+        {
+          src: 'icon-512x512.png',
+          sizes: '512x512',
+          type: 'image/png',
+          // purpose: 'any maskable',
+        },
+      ],
+    },
+    screenshots: [
+      {
+        src: '/images/screen540720.png',
+        type: 'image/png',
+        sizes: '540x720',
+        form_factor: 'narrow',
+      },
+      {
+        src: '/images/screen720540.jpg',
+        type: 'image/jpg',
+        sizes: '720x540',
+        form_factor: 'wide',
+      },
+    ],
+    workbox: {
+      navigateFallback: '/',
+      globPatterns: ['**/*.{js,css,html,png,svg,ico}'],
+      runtimeCaching: [
+        {
+          urlPattern: ({ url }) => {
+            return url.pathname.startsWith('/api/users/me')
+          },
+          handler: 'CacheFirst' as const,
+          options: {
+            cacheName: 'wavus-api-cache',
+            cacheableResponse: {
+              statuses: [0, 200],
+            },
+          },
+        },
+      ],
+    },
+    client: {
+      installPrompt: true,
+      // you don't need to include this: only for testing purposes
+      // if enabling periodic sync for update use 1 hour or so (periodicSyncForUpdates: 3600)
+      periodicSyncForUpdates: 20,
+    },
+    devOptions: {
+      enabled: true,
+      suppressWarnings: true,
+      navigateFallbackAllowlist: [/^\/$/],
+      type: 'module',
+    },
   },
   i18n: {
     locales: [

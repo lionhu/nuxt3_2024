@@ -58,6 +58,7 @@
     "@sweetalert2/theme-bootstrap-4": "^5.0.15",
     "@vee-validate/i18n": "^4.12.3",
     "@vee-validate/rules": "^4.12.3",
+    "@vite-pwa/nuxt": "^0.4.0",
     "@vueuse/core": "^10.5.0",
     "@vueuse/nuxt": "^10.5.0",
     "chart.js": "^4.4.1",
