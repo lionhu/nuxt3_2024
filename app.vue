@@ -15,7 +15,7 @@ AppSetup()
     class="antialiased duration-300 transition-colors text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-950"
   >
     <NuxtLayout>
-      <NuxtLoadingIndicator :height="10" :duration="3000" :throttle="0" />
+      <NuxtLoadingIndicator :height="5" :duration="2000" :throttle="0" />
       <NuxtPage />
     </NuxtLayout>
   </Body>

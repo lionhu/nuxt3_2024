@@ -52,7 +52,7 @@ onMounted(() => {
     )
 
     tl.play()
-    
+
     if ($screen.higherThan('md', $screen.current.value) && props.switchNav) {
       toggleHeader()
     }
@@ -64,9 +64,13 @@ onMounted(() => {
 
 <template>
   <header class="header_container">
-    <a href="#">
+    <NuxtLink tag="a" to="/"
+      ><img src="/images/nerv-logo-black.png" class="logo w-[4rem] h-auto"
+    /></NuxtLink>
+
+    <!-- <a href="#">
       <img src="/images/nerv-logo-black.png" class="logo w-[4rem] h-auto" />
-    </a>
+    </a> -->
     <span class="toggle">
       <span></span>
       <span></span>
