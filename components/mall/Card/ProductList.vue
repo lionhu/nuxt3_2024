@@ -39,7 +39,7 @@ const { minProductPrice } = useShop()
         >± -->
         <img
           class="md:absolute w-full md:h-full md:object-cover"
-          :src="getStrapiMedia(product.images[0].url)"
+          :src="product.imagesList.thumb"
           alt="product image"
           loading="lazy"
           width="432"
@@ -53,7 +53,7 @@ const { minProductPrice } = useShop()
             <!-- <div class="flex items-baseline text-white">
               Batin crofessor pampden
             </div> -->
-            <WidgetsCountdown :endtime="_noew" />
+            <MallWidgetCountdown :endtime="_noew" />
           </div>
         </div>
 
@@ -166,7 +166,7 @@ const { minProductPrice } = useShop()
               data-tippy-content="Add to cart"
               @click="_modalIsopen = true"
             >
-              <IconRi:shopping-cart-fill />
+              <Icon name="ri:shopping-cart-fill" />
               <span class="text-sm ml-2">Add to cart</span>
             </a>
           </li>

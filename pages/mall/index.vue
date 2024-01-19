@@ -122,7 +122,6 @@ onMounted(() => {
                     <p
                       class="text-lg md:text-xl dark:text-white font-semibold leading-6 xl:leading-5 text-gray-800"
                     >
-                      <!-- TODO debug variables in i18n -->
                       {{ t('pages.mall.found_products', { num: 100 }) }}:
                       {{ foundProductNum }}
                     </p>
