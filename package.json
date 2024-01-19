@@ -62,6 +62,7 @@
     "@vueuse/core": "^10.5.0",
     "@vueuse/nuxt": "^10.5.0",
     "chart.js": "^4.4.1",
+    "floating-vue": "^5.2.0",
     "gsap": "^3.12.4",
     "gsap-trial": "^3.12.4",
     "nuxt-headlessui": "^1.1.4",

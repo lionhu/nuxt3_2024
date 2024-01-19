@@ -39,7 +39,7 @@ export const useIdentity = defineStore('identity', {
       return state.user?.avatar?.url || '/images/etaxi/airport.jpg'
     },
     rolename: (state): string => {
-      if (!state.user) return 'pulbic'
+      if (!state.user) return 'public'
       return state.user?.role?.name?.toLowerCase() as string
     },
     IsStaff: (state): boolean => {

@@ -25,6 +25,13 @@
       "successfully_registered": "登録成功！",
       "reset_password": "パスワード再設定",
       "password_reseted": "パスワード再設定された"
+    },
+    "mall": {
+      "title": "Misawaオンラインショップ",
+      "search": "検索",
+      "search_placeholder": "キーワードをご入力",
+      "category": "カテゴリー",
+      "found_products": "%{num}見つけた製品"
     }
   },
   "errors": {

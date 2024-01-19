@@ -13,7 +13,6 @@ export default defineNuxtConfig({
     // global transition
     pageTransition: { name: 'page', mode: 'out-in' },
     layoutTransition: { name: 'layout', mode: 'out-in' },
-    link: [{ rel: 'manifest', href: '/manifest.webmanifest' }],
   },
 
   // typescripts
@@ -52,6 +51,12 @@ export default defineNuxtConfig({
     'nuxt-split-type',
     '@samk-dev/nuxt-vcalendar',
     '@vite-pwa/nuxt',
+    [
+      'nuxt-swiper',
+      {
+        // Swiper options
+      },
+    ],
   ],
 
   css: [
@@ -69,6 +74,11 @@ export default defineNuxtConfig({
     {
       prefix: 'Awesome',
       path: resolve('./components/awesome'),
+      global: true,
+    },
+    {
+      prefix: 'Mall',
+      path: resolve('./components/mall'),
       global: true,
     },
     {
@@ -121,20 +131,20 @@ export default defineNuxtConfig({
         },
       ],
     },
-    screenshots: [
-      {
-        src: '/images/screen540720.png',
-        type: 'image/png',
-        sizes: '540x720',
-        form_factor: 'narrow',
-      },
-      {
-        src: '/images/screen720540.jpg',
-        type: 'image/jpg',
-        sizes: '720x540',
-        form_factor: 'wide',
-      },
-    ],
+    // screenshots: [
+    //   {
+    //     src: '/images/screen540720.png',
+    //     type: 'image/png',
+    //     sizes: '540x720',
+    //     form_factor: 'narrow',
+    //   },
+    //   {
+    //     src: '/images/screen720540.jpg',
+    //     type: 'image/jpg',
+    //     sizes: '720x540',
+    //     form_factor: 'wide',
+    //   },
+    // ],
     workbox: {
       navigateFallback: '/',
       globPatterns: ['**/*.{js,css,html,png,svg,ico}'],

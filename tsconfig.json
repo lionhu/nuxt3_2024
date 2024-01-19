@@ -6,10 +6,19 @@
     "skipLibCheck": true,
     "ignoreDeprecations": "5.0",
     "suppressImplicitAnyIndexErrors": true,
-    "types": [
-      "@pinia/nuxt",
-      "@nuxtjs/tailwindcss",
-      "@nuxt/ui",
-    ]
+    "types": ["@pinia/nuxt", "@nuxtjs/tailwindcss", "@nuxt/ui"],
+    "baseUrl": "..",
+    "paths": {
+      "~~": ["."],
+      "~~/*": ["./*"],
+      "@@": ["."],
+      "@@/*": ["./*"],
+      "~": ["."],
+      "~/*": ["./*"],
+      "@": ["."],
+      "@/*": ["./*"],
+      "assets": ["assets"],
+      "public": ["public"]
+    }
   }
 }

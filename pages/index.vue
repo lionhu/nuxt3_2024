@@ -93,44 +93,44 @@ const attrs = ref([
 //   await login({ identifier: 'lionhu2009@gmail.com', password: 'Lionhu2008' })
 // } catch (e) {}
 
-// const key = 'system'
-// const role = 'public'
-// export interface Setting {
-//   [key: string]: any
-// }
+const key = 'system'
+const role = 'public'
+export interface Setting {
+  [key: string]: any
+}
 
-// const querySettings = `
-//   query getSetting($rolename: StringFilterInput!, $key: StringFilterInput!) {
-//     settings(filters: { role: $rolename, key: $key }) {
-//       data {
-//         attributes {
-//           key
-//           setting
-//         }
-//       }
-//     }
-//   }
-// `
+const querySettings = `
+  query getSetting($rolename: StringFilterInput!, $key: StringFilterInput!) {
+    settings(filters: { role: $rolename, key: $key }) {
+      data {
+        attributes {
+          key
+          setting
+        }
+      }
+    }
+  }
+`
 
-// const graphql = useStrapiGraphQL()
-// const variable = {
-//   rolename: {
-//     eq: role,
-//   },
-//   key: {
-//     eq: key,
-//   },
-// }
-// await graphql<{
-//   data: { settings: Array<Setting> }
-// }>(querySettings, variable)
-//   .then((response: any) => {
-//     const { data } = response
-//     console.log('data', data)
-//   })
-//   .catch((_error) => {
-//     console.log('_error', _error)
-//   })
+const graphql = useStrapiGraphQL()
+const variable = {
+  rolename: {
+    eq: role,
+  },
+  key: {
+    eq: key,
+  },
+}
+await graphql<{
+  data: { settings: Array<Setting> }
+}>(querySettings, variable)
+  .then((response: any) => {
+    const { data } = response
+    console.log('data', data)
+  })
+  .catch((_error) => {
+    console.log('_error', _error)
+  })
 </script>
 
 <template>
