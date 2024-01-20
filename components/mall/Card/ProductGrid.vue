@@ -13,8 +13,6 @@ const props = defineProps({
 const modalDetailIsopen = ref(false)
 const _modalAddCartIsopen = ref(false)
 const processAction = (e: string, value: any) => {
-  console.log('processAction', e, value)
-
   switch (e) {
     case 'show_details':
       modalDetailIsopen.value = value
@@ -34,7 +32,7 @@ const hasVariation = computed(() => props.product!.variations.length > 0)
 <template>
   <div
     v-if="product"
-    class="border border-solid border-gray-300 transition-all hover:shadow-product group mt-3 dark:border-gray-600"
+    class="product_item border border-solid border-gray-300 transition-all hover:shadow-product group mt-3 dark:border-gray-600"
   >
     <TabGroup>
       <TabPanels class="mt-2 z-10">

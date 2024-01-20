@@ -43,6 +43,7 @@ const loadCategoryProducts = async (id: number) => {
 
   await getCategoryProducts(id)
 }
+
 watch([searchKeyword, currentCategoryId], async (newvals: any) => {
   console.log('watch', newvals)
 
@@ -122,8 +123,9 @@ onMounted(() => {
                     <p
                       class="text-lg md:text-xl dark:text-white font-semibold leading-6 xl:leading-5 text-gray-800"
                     >
-                      {{ t('pages.mall.found_products', { num: 100 }) }}:
-                      {{ foundProductNum }}
+                      {{
+                        t('pages.mall.found_products', { num: foundProductNum })
+                      }}
                     </p>
                     <client-only>
                       <div v-if="searchProducts.length > 0">

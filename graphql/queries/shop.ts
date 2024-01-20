@@ -38,6 +38,7 @@ query getCategoryProducts($uid: ID!) {
           data {
             id
             attributes {
+              name
               price
               inventory
             }

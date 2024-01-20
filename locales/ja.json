@@ -31,7 +31,10 @@
       "search": "検索",
       "search_placeholder": "キーワードをご入力",
       "category": "カテゴリー",
-      "found_products": "%{num}見つけた製品"
+      "found_products": "%{num}見つけた製品",
+      "buttons": {
+        "add_to_cart": "カートへ追加"
+      }
     }
   },
   "errors": {

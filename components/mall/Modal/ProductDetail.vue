@@ -65,11 +65,11 @@ const addCart = (product: Product) => {
   // console.log('addCart _cartitem', _cartitem)
 
   if (variationId.value > 0) {
-    const new_value = storeShop.addCartItem(_cartitem)
+    const newValue = storeShop.addCartItem(_cartitem)
     showToast({
       icon: 'success',
       title: t('apps.mall.modals.product_detail.added_to_cart', {
-        num: new_value,
+        num: newValue,
       }),
       timer: 1000,
     })
@@ -117,7 +117,7 @@ const addCart = (product: Product) => {
               leave-to="opacity-0 scale-95"
             >
               <DialogPanel
-                class="w-full md:max-w-3/5 transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
+                class="w-full md:max-w-screen-xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
               >
                 <!-- <DialogTitle
                   as="h3"
@@ -136,7 +136,8 @@ const addCart = (product: Product) => {
                   </button>
 
                   <div class="flex-0 my-auto">
-                    <MallWidgetProductImageSlider :product="product" />
+                    <img :src="product.imagesList.url" />
+                    <!-- <MallWidgetProductImageSlider :product="product" /> -->
                   </div>
                   <div class="flex-1">
                     <h3
@@ -200,7 +201,6 @@ const addCart = (product: Product) => {
                       class="mb-5 text-sm text-gray-800"
                       v-html="product.description"
                     ></p>
-
                     <select
                       v-model="variationId"
                       class="w-full h-12 border border-solid border-gray-300 px-5 py-2 appearance-none text-gray-800"
@@ -257,7 +257,7 @@ const addCart = (product: Product) => {
                           :disabled="btnDisabled"
                           @click="product && addCart(product)"
                         >
-                          {{ t('apps.mall.buttons.add_to_cart') }}
+                          {{ t('pages.mall.buttons.add_to_cart') }}
                         </button>
                       </div>
                     </div>

@@ -51,6 +51,7 @@ export default defineNuxtConfig({
     'nuxt-split-type',
     '@samk-dev/nuxt-vcalendar',
     '@vite-pwa/nuxt',
+    'floating-vue/nuxt',
     [
       'nuxt-swiper',
       {
