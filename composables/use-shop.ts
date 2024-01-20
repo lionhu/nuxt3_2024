@@ -79,6 +79,7 @@ export const useShop = () => {
       const rolename = user?.value
         ? (user?.value?.rolename as string).toLowerCase()
         : 'public'
+      storeShop.empty()
       getCategories()
       getShopSetting(rolename)
     } catch (error) {}

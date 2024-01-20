@@ -39,16 +39,14 @@ const hasVariation = computed(() => props.product!.variations.length > 0)
     <TabGroup>
       <TabPanels class="mt-2 z-10">
         <TabPanel
-          v-for="(image, idx) in product.images"
-          :key="idx"
           :class="[
             'rounded-xl bg-white p-3 relative aspect-square flex items-center',
-            'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
+            'ring-white ring-opacity-60 ring-offset-2 ring-offset-primary focus:outline-none focus:ring-2',
           ]"
         >
           <div
-            class="ribbon flex items-center justify-center"
             v-if="product.info && product.info.new"
+            class="ribbon flex items-center justify-center"
           >
             <span class="font-bold uppercase text-xs text-black bg-white -mt-2"
               >New</span
@@ -65,13 +63,13 @@ const hasVariation = computed(() => props.product!.variations.length > 0)
           </div>
 
           <img
-            :src="getStrapiMedia(image.url, 'format=webp&resize=320x320&embed')"
+            :src="product.imagesList.url"
             class="w-full mx-auto inline-block"
           />
-          <WidgetsShopActionIcons @triggerAction="processAction" />
+          <MallWidgetActionIcons @trigger-action="processAction" />
         </TabPanel>
       </TabPanels>
-      <div class="mx-auto">
+      <!-- <div class="mx-auto">
         <TabList class="flex justify-evenly space-x-3 rounded-xl px-2 mt-2">
           <Tab
             v-for="(image, idx) in product.images"
@@ -91,7 +89,7 @@ const hasVariation = computed(() => props.product!.variations.length > 0)
             </button>
           </Tab>
         </TabList>
-      </div>
+      </div> -->
     </TabGroup>
 
     <div class="py-5 px-4">
@@ -113,8 +111,8 @@ const hasVariation = computed(() => props.product!.variations.length > 0)
         >
       </h3>
       <h4
-        class="font-bold text-md leading-none text-orange mt-3"
         v-if="minProductPrice(product) !== ''"
+        class="font-bold text-md leading-none text-orange mt-3"
       >
         <!-- <del class="font-normal text-sm mr-1 inline-block">$110.00</del> -->
         {{ minProductPrice(product) }}
@@ -129,8 +127,8 @@ const hasVariation = computed(() => props.product!.variations.length > 0)
       </button>
     </div>
 
-    <ModalShopProductDetail v-model="modalDetailIsopen" :product="product" />
-    <ModalShopAddCart v-model="_modalAddCartIsopen" :product="product" />
+    <MallModalProductDetail v-model="modalDetailIsopen" :product="product" />
+    <MallModalAddCart v-model="_modalAddCartIsopen" :product="product" />
   </div>
 </template>
 

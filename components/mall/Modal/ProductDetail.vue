@@ -119,22 +119,21 @@ const addCart = (product: Product) => {
               <DialogPanel
                 class="w-full md:max-w-screen-xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
               >
-                <!-- <DialogTitle
+                <DialogTitle
                   as="h3"
                   class="text-lg font-medium leading-6 text-gray-900"
                 >
                   <div class="flex justify-between items-center">
                     <span>AddressBook</span>
+                    <button
+                      class="text-black text-lg absolute top-7 right-7 modal-close"
+                      @click="setIsOpen(false)"
+                    >
+                      <Icon name="ri:close-circle-fill" />
+                    </button>
                   </div>
-                </DialogTitle> -->
+                </DialogTitle>
                 <div class="grid md:grid-cols-2 gap-4">
-                  <button
-                    class="text-black text-lg absolute top-7 right-7 modal-close"
-                    @click="setIsOpen(false)"
-                  >
-                    <Icon name="ri:close-circle-fill" />
-                  </button>
-
                   <div class="flex-0 my-auto">
                     <img :src="product.imagesList.url" />
                     <!-- <MallWidgetProductImageSlider :product="product" /> -->
@@ -197,10 +196,10 @@ const addCart = (product: Product) => {
                         </template>
                       </MallWidgetPopperMessage>
                     </div>
-                    <p
-                      class="mb-5 text-sm text-gray-800"
+                    <div
+                      class="mb-5 text-sm text-gray-800 h-full max-h-48 overflow-y-auto"
                       v-html="product.description"
-                    ></p>
+                    ></div>
                     <select
                       v-model="variationId"
                       class="w-full h-12 border border-solid border-gray-300 px-5 py-2 appearance-none text-gray-800"

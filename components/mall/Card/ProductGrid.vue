@@ -35,13 +35,13 @@ const hasVariation = computed(() => props.product!.variations.length > 0)
     class="product_item border border-solid border-gray-300 transition-all hover:shadow-product group mt-3 dark:border-gray-600"
   >
     <TabGroup>
-      <TabPanels class="mt-2 z-10">
+      <TabPanels class="z-10">
         <TabPanel
           v-for="(image, idx) in product.imagesList"
           :key="idx"
           :class="[
             'rounded-xl bg-white p-3 relative aspect-square flex items-center',
-            'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
+            'ring-white ring-opacity-60 ring-offset-2 ring-offset-primary focus:outline-none focus:ring-2',
           ]"
         >
           <div

@@ -75,16 +75,11 @@ onMounted(() => {
   <LayoutPageWrapper>
     <LayoutPageSection>
       <div class="md:pt-12">
-        <div class="container">
-          <div class="flex flex-wrap flex-col lg:flex-row -mx-4">
+        <div class="w-[90%] mx-auto">
+          <div class="flex flex-wrap flex-col lg:flex-row">
             <div class="lg:w-1/4 px-4 order-last lg:order-first mt-8 lg:mt-0">
               <div>
                 <div class="mb-12">
-                  <h4
-                    class="font-medium text-md lg:text-lg text-dark capitalize mb-10 dark:text-gray-400"
-                  >
-                    {{ t('pages.mall.search') }}
-                  </h4>
                   <div class="pro-sidebar-search mb-20 mt-10">
                     <div class="relative border border-solid border-gray-300">
                       <input
@@ -128,7 +123,10 @@ onMounted(() => {
                       }}
                     </p>
                     <client-only>
-                      <div v-if="searchProducts.length > 0">
+                      <div
+                        v-if="searchProducts.length > 0"
+                        class="grid grid-cols-3 gap-3"
+                      >
                         <div
                           v-for="(product, idx) in searchProducts"
                           :key="idx"
