@@ -32,6 +32,12 @@
       "search_placeholder": "キーワードをご入力",
       "category": "カテゴリー",
       "found_products": "%{num}見つけた製品",
+      "modals": {
+        "product_detail": {
+          "removed_successfully": "成功删除",
+          "added_to_cart": "成功添加到购物车。现在有{num}件同款产品"
+        }
+      },
       "buttons": {
         "add_to_cart": "カートへ追加"
       }

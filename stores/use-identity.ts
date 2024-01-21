@@ -57,6 +57,16 @@ export const useIdentity = defineStore('identity', {
       }
       return ''
     },
+    EnableShoppingMallAPP: (state): boolean => {
+      if (state.user && state.user.client) {
+        return (state.user?.client as WavusClient).extra_info.sections
+          .shopping_mall
+          ? (state.user?.client as WavusClient).extra_info.sections
+              .shopping_mall.enable
+          : false
+      }
+      return false
+    },
   },
 })
 

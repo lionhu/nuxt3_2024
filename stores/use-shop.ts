@@ -107,7 +107,7 @@ export const useShopStore = defineStore('shop', {
   actions: {
     empty() {
       this.categories = []
-      this.cartitems = []
+      // this.cartitems = []
       this.order = null
       this.products = []
       this.settings = null

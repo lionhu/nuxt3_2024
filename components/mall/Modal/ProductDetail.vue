@@ -68,7 +68,7 @@ const addCart = (product: Product) => {
     const newValue = storeShop.addCartItem(_cartitem)
     showToast({
       icon: 'success',
-      title: t('apps.mall.modals.product_detail.added_to_cart', {
+      title: t('pages.mall.modals.product_detail.added_to_cart', {
         num: newValue,
       }),
       timer: 1000,
@@ -220,6 +220,7 @@ const addCart = (product: Product) => {
 
                     <div
                       class="flex flex-wrap items-center mt-8 text-gray-800 justify-between"
+                      :class="btnDisabled ? 'hidden' : 'block'"
                     >
                       <div
                         class="flex count border border-solid border-gray-300 p-2 h-11"
@@ -251,9 +252,8 @@ const addCart = (product: Product) => {
                         <button
                           :class="[
                             'bg-black leading-none py-4 px-5 md:px-8 font-normal text-sm h-11 text-white transition-all ',
-                            !btnDisabled ? 'hover:bg-orange' : '',
+                            !btnDisabled ? 'hover:bg-primary' : '',
                           ]"
-                          :disabled="btnDisabled"
                           @click="product && addCart(product)"
                         >
                           {{ t('pages.mall.buttons.add_to_cart') }}

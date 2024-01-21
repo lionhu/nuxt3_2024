@@ -15,6 +15,8 @@ export default defineNuxtConfig({
     layoutTransition: { name: 'layout', mode: 'out-in' },
   },
 
+  // server side rendering mode
+  ssr: true,
   // typescripts
   // todo: feat/strict-type-check
   // typescript: {
@@ -150,18 +152,18 @@ export default defineNuxtConfig({
       navigateFallback: '/',
       globPatterns: ['**/*.{js,css,html,png,svg,ico}'],
       runtimeCaching: [
-        {
-          urlPattern: ({ url }) => {
-            return url.pathname.startsWith('/api/users/me')
-          },
-          handler: 'CacheFirst' as const,
-          options: {
-            cacheName: 'wavus-api-cache',
-            cacheableResponse: {
-              statuses: [0, 200],
-            },
-          },
-        },
+        // {
+        //   urlPattern: ({ url }) => {
+        //     return url.pathname.startsWith('/api/users/me')
+        //   },
+        //   handler: 'CacheFirst' as const,
+        //   options: {
+        //     cacheName: 'wavus-api-cache',
+        //     cacheableResponse: {
+        //       statuses: [0, 200],
+        //     },
+        //   },
+        // },
       ],
     },
     client: {

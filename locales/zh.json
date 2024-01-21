@@ -32,6 +32,12 @@
       "search_placeholder": "搜索产品关键字",
       "category": "类别",
       "found_products": "找到 %{num}件 产品",
+      "modals": {
+        "product_detail": {
+          "removed_successfully": "成功删除",
+          "added_to_cart": "成功添加!购物车现有{num}件同款产品"
+        }
+      },
       "buttons": {
         "add_to_cart": "添加至购物车"
       }

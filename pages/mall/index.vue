@@ -1,17 +1,13 @@
 <script lang="ts" setup>
-import { storeToRefs } from 'pinia'
-import { capitalize } from '~~/utils/str'
-import { useShopStore } from '~~/stores/use-shop'
 import type { Product } from '~~/types/shop'
 // composable
 const { t } = useLang()
 const gridview = ref(true)
-const { rolename } = useAuth()
 const currentCategoryId = ref(0)
 // compiler macro
 definePageMeta({
   layout: 'page',
-  // middleware: ['auth', 'enable-shopping'],
+  middleware: ['auth'],
 })
 // useHead(() => ({
 //   title: capitalize(t('pages.blank.title')),
@@ -27,7 +23,7 @@ const { products, loadShopSettings, getCategoryProducts } = useShop()
 const searchProducts = ref<Array<Product>>([])
 const searchKeyword = ref('')
 const foundProductNum = ref(0)
-const search_for_products = async (keyword: string): Promise<any> => {
+const searchProductsByKey = async (keyword: string): Promise<any> => {
   // console.log('searchKeyword', keyword)
   const { search } = useMeilisearch()
   const { hits, nbHits } = await search('product', keyword)
@@ -56,7 +52,7 @@ watch([searchKeyword, currentCategoryId], async (newvals: any) => {
   }
   if (newKeyword.length > 1) {
     console.log('useMeilisearch newKeyword', newKeyword)
-    const result = await search_for_products(newKeyword)
+    const result = await searchProductsByKey(newKeyword)
 
     searchProducts.value = result.hits
     foundProductNum.value = result.nbHits
