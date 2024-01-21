@@ -18,7 +18,7 @@ export default defineAppConfig({
       page: {
         navbar: {
           menus: [
-            { type: 'link', title: 'Landing', to: { name: 'landing' } },
+            { type: 'link', title: 'Mall', to: { name: 'mall' } },
             { type: 'link', title: 'Landing2', to: { name: 'landing2' } },
             // dynamic title
             {

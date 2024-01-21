@@ -7,6 +7,7 @@ export const useAuth = () => {
   const config = useRuntimeConfig()
   const router = useRouter()
   const { $i18n } = useNuxtApp()
+
   const t = $i18n.t
 
   const { login, logout, register, fetchUser } = useStrapiAuth()
@@ -25,6 +26,7 @@ export const useAuth = () => {
     UserID,
     UserQR,
     ClientID,
+    EnableShoppingMallAPP,
   } = storeToRefs(storeUser)
 
   function signOut() {
@@ -240,5 +242,6 @@ export const useAuth = () => {
     rolename,
     UserProfile,
     UserClient,
+    EnableShoppingMallAPP,
   }
 }

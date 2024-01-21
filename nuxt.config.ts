@@ -16,7 +16,8 @@ export default defineNuxtConfig({
   },
 
   // server side rendering mode
-  ssr: true,
+  // ssr: true,
+
   // typescripts
   // todo: feat/strict-type-check
   // typescript: {
@@ -252,5 +253,13 @@ export default defineNuxtConfig({
     highlight: {
       theme: 'github-dark',
     },
+  },
+  // build
+  build: {
+    transpile: ['@headlessui/vue', 'tslib', '@vuepic/vue-datepicker'],
+  },
+  // vueuse
+  vueuse: {
+    ssrHandlers: true,
   },
 })

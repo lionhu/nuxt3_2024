@@ -49,9 +49,9 @@ onMounted(() => {
 
 <template>
   <header class="header_container">
-    <a href="#">
+    <NuxtLink to="/">
       <img src="/images/nerv-logo-black.png" class="logo w-[4rem] h-auto" />
-    </a>
+    </NuxtLink>
     <span class="toggle">
       <span></span>
       <span></span>

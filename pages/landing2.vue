@@ -10,47 +10,49 @@ onMounted(() => {
     const img = section.querySelector('img')
     const title = section.querySelector('.title')
     const circle = section.querySelector('.circle')
-    const title_line = section.querySelector('.title_line')
+    const titleLine = section.querySelector('.title_line')
     const lines = section.querySelectorAll('p span')
 
-    tl.fromTo(
-      img,
-      { x: '-150%', rotate: -360, scale: 0.5, duration: 0.5 },
-      { x: 0, scale: 1, rotate: 0, duration: 0.5, ease: 'back.out(1.5)' },
-    )
-    tl.fromTo(
-      circle,
-      { y: '100%', opacity: 0, duration: 0.5 },
-      { y: 0, opacity: 1, duration: 0.5 },
-      0,
-    )
-    tl.fromTo(
-      title,
-      { yPercent: 150, opacity: 0, ease: 'power4', duration: 0.3 },
-      { yPercent: 0, opacity: 1, ease: 'power4', duration: 0.3 },
-    )
-    tl.fromTo(
-      title_line,
-      { width: 0, ease: 'power4', duration: 0.3 },
-      { width: '100%', ease: 'power4', duration: 0.3 },
-    )
-    tl.fromTo(
-      lines,
-      {
-        opacity: 0,
-        x: 100,
-        stagger: { each: 0.1 },
-        ease: 'power4',
-        duration: 0.5,
-      },
-      {
-        opacity: 1,
-        x: 0,
-        stagger: { each: 0.1 },
-        ease: 'power4',
-        duration: 0.5,
-      },
-    )
+    img &&
+      tl
+        .fromTo(
+          img,
+          { x: '-150%', rotate: -360, scale: 0.5, duration: 0.5 },
+          { x: 0, scale: 1, rotate: 0, duration: 0.5, ease: 'back.out(1.5)' },
+        )
+        .fromTo(
+          circle,
+          { y: '100%', opacity: 0, duration: 0.5 },
+          { y: 0, opacity: 1, duration: 0.5 },
+          0,
+        )
+        .fromTo(
+          title,
+          { yPercent: 150, opacity: 0, ease: 'power4', duration: 0.3 },
+          { yPercent: 0, opacity: 1, ease: 'power4', duration: 0.3 },
+        )
+        .fromTo(
+          titleLine,
+          { width: 0, ease: 'power4', duration: 0.3 },
+          { width: '100%', ease: 'power4', duration: 0.3 },
+        )
+        .fromTo(
+          lines,
+          {
+            opacity: 0,
+            x: 100,
+            stagger: { each: 0.1 },
+            ease: 'power4',
+            duration: 0.5,
+          },
+          {
+            opacity: 1,
+            x: 0,
+            stagger: { each: 0.1 },
+            ease: 'power4',
+            duration: 0.5,
+          },
+        )
     if (isIntersecting) {
       tl.play()
     } else {
@@ -72,10 +74,10 @@ onMounted(() => {
 <template>
   <LayoutPageWrapper class="bg-purple-600">
     <LayoutPageSectionSplit>
-      <template v-slot:main>
+      <template #main>
         <div class="circle bg-purple-600"></div>
       </template>
-      <template v-slot:left>
+      <template #left>
         <div class="relative m-auto">
           <img
             src="/images/midoriya.webp"
@@ -83,7 +85,7 @@ onMounted(() => {
           />
         </div>
       </template>
-      <template v-slot:right>
+      <template #right>
         <div
           class="relative w-1/2 overflow-hidden flex flex-col place-content-center items-center"
         >
@@ -106,10 +108,10 @@ onMounted(() => {
       </template>
     </LayoutPageSectionSplit>
     <LayoutPageSectionSplit>
-      <template v-slot:main>
+      <template #main>
         <div class="circle bg-green-600"></div>
       </template>
-      <template v-slot:left>
+      <template #left>
         <div class="relative m-auto">
           <img
             src="/images/midoriya.webp"
@@ -117,7 +119,7 @@ onMounted(() => {
           />
         </div>
       </template>
-      <template v-slot:right>
+      <template #right>
         <div
           class="relative w-1/2 overflow-hidden flex flex-col place-content-center items-center"
         >

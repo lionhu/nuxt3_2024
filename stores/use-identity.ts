@@ -19,12 +19,7 @@ export const useIdentity = defineStore('identity', {
     setUser(user: WavusUser) {
       this.user = user
       const token = useStrapiToken()
-      console.log('strapi token', token)
       this.strapiToken = token.value
-      // if (user && user.role) {
-      //   const rolename = useCookie('backup.rolename')
-      //   rolename.value = user.role?.name.toLowerCase()
-      // }
     },
     reset() {
       this.user = null

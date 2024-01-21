@@ -7,7 +7,7 @@ const currentCategoryId = ref(0)
 // compiler macro
 definePageMeta({
   layout: 'page',
-  middleware: ['auth'],
+  middleware: ['auth', 'enable-shopping'],
 })
 // useHead(() => ({
 //   title: capitalize(t('pages.blank.title')),
