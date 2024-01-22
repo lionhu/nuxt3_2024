@@ -32,6 +32,31 @@
       "search_placeholder": "搜索产品关键字",
       "category": "类别",
       "found_products": "找到 %{num}件 产品",
+      "cart": {
+        "title": "购物车",
+        "summary": "一览",
+        "subtotal": "小计",
+        "total": "总计",
+        "checkout": "结账"
+      },
+      "checkout": {
+        "billing_detail": "结账信息",
+        "place_order": "确认下单"
+      },
+      "payment": {
+        "title": "结算",
+        "delivery": "收件信息",
+        "pay_by_creditcard": "信用卡支付"
+      },
+      "addressbook": {
+        "title": "通讯录",
+        "name": "收件人",
+        "postcode": "邮编",
+        "phone": "电话",
+        "email": "邮箱",
+        "address": "地址",
+        "address_2": "地址2"
+      },
       "modals": {
         "product_detail": {
           "removed_successfully": "成功删除",

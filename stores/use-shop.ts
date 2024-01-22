@@ -161,12 +161,13 @@ export const useShopStore = defineStore('shop', {
         if (this.cartitems[indexCartItem].qty > 1) {
           this.cartitems[indexCartItem].qty--
           this.cartitems[indexCartItem].total -= item.qty * item.price
+          return this.cartitems[indexCartItem].qty
         } else {
           this.removeCartItem(item)
+          return 0
         }
       }
-
-      return this.cartitems[indexCartItem].qty
+      return 0
     },
     prepareCartItem(item: SimpleCartItem): DisplayCartItem | null {
       let _item = null

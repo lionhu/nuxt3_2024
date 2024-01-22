@@ -27,6 +27,7 @@ export const useShop = () => {
   const dataLoading = useState<boolean>('showDataLoading')
   const showQuickview = ref(false)
   const { t } = useLang()
+  
   const {
     categories,
     settings,
@@ -37,6 +38,7 @@ export const useShop = () => {
     SelectOrder,
     Total,
     Qty,
+    ValidCart,
     ORDER_STATUS_LIST,
     ORDER_DATERANGE_LIST,
   } = storeToRefs(storeShop)
@@ -379,6 +381,7 @@ export const useShop = () => {
     Qty,
     ORDER_STATUS_LIST,
     ORDER_DATERANGE_LIST,
+    ValidCart,
 
     emptyCart,
     getCategories,

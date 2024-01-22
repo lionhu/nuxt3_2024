@@ -54,7 +54,7 @@ export const queryUserAddressbooks = `
       data {
         id
         attributes {
-          receiver
+          name
           address_last
           address_first
           phone

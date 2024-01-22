@@ -73,6 +73,13 @@ export default <Partial<Config>>{
         blue: MyTheme.colors.blue,
         red: MyTheme.colors.red,
         slate: colors.slate,
+        dark: 'rgb(31 34 38)',
+
+        NEW: MyTheme.colors.red['700'],
+        RECRUITING: 'rgb(217 119 6)',
+        PROCESSING: MyTheme.colors.blue['400'],
+        COMPLETED: MyTheme.colors.green['400'],
+        CANCELED: MyTheme.colors.blue['50'],
       },
       fontFamily: {
         sans: ['Nunito', ...defaultTheme.fontFamily.sans],
@@ -84,5 +91,9 @@ export default <Partial<Config>>{
         grotesk_bold: ['Grotesk-Bold', 'sans-serif'],
       },
     },
+  },
+  shortcuts: {
+    'hyperlink-btn-dark':
+      'block w-full text-center leading-none uppercase text-white text-sm bg-dark px-5 py-5 transition-all hover:bg-orange font-semibold',
   },
 }
