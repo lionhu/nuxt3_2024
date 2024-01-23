@@ -81,25 +81,25 @@ const operateCartItem = (
     >
       <div class="md:w-4/12 2xl:w-1/4 w-full">
         <img
-          v-if="item.obj_product"
-          :src="item.obj_product.imagesList.url"
+          v-if="item.product"
+          :src="item.product.imagesList.url"
           class="w-full object-center object-cover md:block hidden"
         />
         <img
-          v-if="item.obj_product"
-          :src="item.obj_product.imagesList.url"
+          v-if="item.product"
+          :src="item.product.imagesList.url"
           class="w-full object-center object-cover md:hidden"
         />
       </div>
       <div class="md:pl-3 md:w-8/12 2xl:w-3/4 flex flex-col justify-center">
         <p class="text-xs leading-3 text-gray-800 dark:text-white md:pt-0 pt-4">
-          {{ item.obj_product.name }}
+          {{ item.product.name }}
         </p>
         <div class="flex items-center justify-between w-full pt-1">
           <p
             class="text-base font-black leading-none text-gray-800 dark:text-white"
           >
-            {{ item.obj_variation.name }}
+            {{ item.variation.name }}
           </p>
           <div class="flex count border border-solid border-gray-300 p-2 h-11">
             <button
@@ -107,12 +107,12 @@ const operateCartItem = (
               class="decrement flex-auto w-5 leading-none"
               aria-label="button"
               @click="
-                item.obj_variation &&
+                item.variation &&
                   operateCartItem(
                     'delete',
                     item.product,
                     item.variation,
-                    item.obj_variation.price,
+                    item.variation.price,
                     1,
                   )
               "
@@ -130,12 +130,12 @@ const operateCartItem = (
               class="increment flex-auto w-5 leading-none"
               aria-label="button"
               @click="
-                item.obj_variation &&
+                item.variation &&
                   operateCartItem(
                     'add',
                     item.product,
                     item.variation,
-                    item.obj_variation.price,
+                    item.variation.price,
                     1,
                   )
               "
@@ -145,10 +145,10 @@ const operateCartItem = (
           </div>
         </div>
         <p class="text-xs leading-3 text-gray-600 dark:text-white pt-2">
-          Price: {{ currencyJPY(item.obj_variation.price) }}
+          Price: {{ currencyJPY(item.variation.price) }}
         </p>
         <p class="text-xs leading-3 text-gray-600 dark:text-white py-4">
-          Description: {{ item.obj_variation.description?.substring(0, 80) }}
+          Description: {{ item.variation.description?.substring(0, 80) }}
         </p>
         <div class="flex items-center justify-between pt-5">
           <div class="flex itemms-center">
@@ -159,12 +159,12 @@ const operateCartItem = (
                 v-if="editable"
                 class="btn gap-2 flex items-center justify-center"
                 @click="
-                  item.obj_variation &&
+                  item.variation &&
                     operateCartItem(
                       'remove',
                       item.product,
                       item.variation,
-                      item.obj_variation.price,
+                      item.variation.price,
                       1,
                     )
                 "

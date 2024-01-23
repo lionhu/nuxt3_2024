@@ -1,3 +1,4 @@
+import { storeToRefs } from 'pinia'
 import {
   addAddressbook,
   deleteAddressbook,
@@ -10,13 +11,25 @@ import type {
   AddressbookEntity,
   AddressbookEntityResponse,
 } from '../types/addressbook'
+import { useAddressbookStore } from '~~/stores/addressbook'
 
 export const useAddressBook = () => {
+  const storeAddress = useAddressbookStore()
+  const { myAddressbooks, selectedAddressbook } = storeToRefs(storeAddress)
+
   async function getUserAddressbooks() {
     try {
+      const { UserID } = useAuth()
       const graphql = useStrapiGraphQL()
-      const { data } = await graphql<any>(queryUserAddressbooks)
-      return data.userAddressbooks
+      const variable = {
+        useId: {
+          eq: UserID.value,
+        },
+      }
+
+      const { data } = await graphql<any>(queryUserAddressbooks, variable)
+
+      storeAddress.setMyAddressBook(data.addressbooks)
     } catch (error) {
       console.log('getUserAddressbooks', error)
       return []
@@ -24,8 +37,14 @@ export const useAddressBook = () => {
   }
   async function getUserDefaultAddressbook() {
     try {
+      const { UserID } = useAuth()
       const graphql = useStrapiGraphQL()
-      const { data } = await graphql<any>(queryUserDefaultAddressbook)
+      const variable = {
+        useId: {
+          eq: UserID.value,
+        },
+      }
+      const { data } = await graphql<any>(queryUserDefaultAddressbook, variable)
       return data
     } catch (error) {
       console.log('getUserDefaultAddressbook', error)
@@ -74,6 +93,9 @@ export const useAddressBook = () => {
   }
 
   return {
+    myAddressbooks,
+    selectedAddressbook,
+
     getUserAddressbooks,
     getUserDefaultAddressbook,
     optAddAddressbook,

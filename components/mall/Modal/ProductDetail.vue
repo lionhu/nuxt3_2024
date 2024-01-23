@@ -59,8 +59,8 @@ const addCart = (product: Product) => {
     qty: num.value,
     total: num.value * selectVariation.value.price,
     price: selectVariation.value.price,
-    product: product.id,
-    variation: variationId.value,
+    productId: product.id,
+    variationId: variationId.value,
   }
   // console.log('addCart _cartitem', _cartitem)
 
@@ -138,7 +138,7 @@ const addCart = (product: Product) => {
                     <img :src="product.imagesList.url" />
                     <!-- <MallWidgetProductImageSlider :product="product" /> -->
                   </div>
-                  <div class="flex-1">
+                  <div class="flex-1 flex flex-col overflow-y-auto">
                     <h3
                       :class="[
                         'text-gray-700 text-md lg:text-lg leading-none',
@@ -147,12 +147,31 @@ const addCart = (product: Product) => {
                     >
                       {{ product.name }}
                     </h3>
-                    <h4
+                    <select
+                      v-if="product.variations.length"
+                      v-model="variationId"
+                      class="w-full h-9 border border-solid border-gray-300 px-5 my-4 appearance-none text-gray-800"
+                      style="
+                        background: rgba(0, 0, 0, 0)
+                          url('https://htmldemo.net/sinp/sinp/assets/images/icon/qcv-arrow-down.webp')
+                          no-repeat scroll right 20px center;
+                      "
+                    >
+                      <option
+                        v-for="(variation, idx) in product.variations"
+                        :key="idx"
+                        :value="variation.id"
+                      >
+                        {{ variation.name }}
+                      </option>
+                    </select>
+
+                    <!-- <h4
                       v-if="selectVariation"
                       class="text-gray-700 font-medium text-md lg:text-lg leading-none mb-4"
                     >
                       {{ selectVariation.name }}
-                    </h4>
+                    </h4> -->
                     <div>
                       <MallWidgetPopperMessage
                         v-if="selectVariation && selectVariation.price"
@@ -197,26 +216,9 @@ const addCart = (product: Product) => {
                       </MallWidgetPopperMessage>
                     </div>
                     <div
-                      class="mb-5 text-sm text-gray-800 h-full max-h-48 overflow-y-auto"
+                      class="mb-5 text-sm text-gray-800 max-h-48"
                       v-html="product.description"
                     ></div>
-                    <select
-                      v-model="variationId"
-                      class="w-full h-12 border border-solid border-gray-300 px-5 py-2 appearance-none text-gray-800"
-                      style="
-                        background: rgba(0, 0, 0, 0)
-                          url('https://htmldemo.net/sinp/sinp/assets/images/icon/qcv-arrow-down.webp')
-                          no-repeat scroll right 20px center;
-                      "
-                    >
-                      <option
-                        v-for="(variation, idx) in product.variations"
-                        :key="idx"
-                        :value="variation.id"
-                      >
-                        {{ variation.name }}
-                      </option>
-                    </select>
 
                     <div
                       class="flex flex-wrap items-center mt-8 text-gray-800 justify-between"

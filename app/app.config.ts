@@ -19,7 +19,7 @@ export default defineAppConfig({
         navbar: {
           menus: [
             { type: 'link', title: 'Mall', to: { name: 'mall' } },
-            { type: 'link', title: 'Landing2', to: { name: 'landing2' } },
+            { type: 'link', title: 'Cart', to: { name: 'mall-cart' } },
             // dynamic title
             {
               type: 'button',

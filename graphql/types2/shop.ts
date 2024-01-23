@@ -37,19 +37,19 @@ export type SimpleCartItem = {
   qty: number
   total: number
   price: number
-  product: number
-  variation: number
-  obj_product?: Product
-  obj_variation?: Variation
+  productId: number
+  variationId: number
+  product?: Product
+  variation?: Variation
 }
 export type DisplayCartItem = {
   qty: number
   total: number
   price: number
-  product: number
-  variation: number
-  obj_product: Product
-  obj_variation: Variation
+  productId: number
+  variationId: number
+  product?: Product
+  variation?: Variation
 }
 
 export type Shoppingcart = {

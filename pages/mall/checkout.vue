@@ -1,12 +1,10 @@
 <script lang="ts" setup>
 import Swal from 'sweetalert2'
 import { storeToRefs } from 'pinia'
-import { useShopStore } from '~~/stores/use-shop'
 import { useAddressbookStore } from '~~/stores/addressbook'
 import { capitalize, currencyJPY } from '~/utils/str'
 
 const { t } = useLang()
-const router = useRouter()
 // compiler macro
 definePageMeta({
   layout: 'page',
@@ -25,13 +23,18 @@ definePageMeta({
 const isopen = ref(false)
 
 const { showToast } = useSwal()
-const { placeOrder } = useShop()
-const storeShop = useShopStore()
-const { Qty, Total, ValidCart, cartitems } = storeToRefs(storeShop)
+const { placeOrder, Qty, Total, ValidCart, cartitems } = useShop()
 
-const storeAddressBook = useAddressbookStore()
-const { selectedAddressbook } = storeToRefs(storeAddressBook)
-await storeAddressBook.loadUserAddressbooks()
+// const storeAddressBook = useAddressbookStore()
+// const { selectedAddressbook } = storeToRefs(storeAddressBook)
+// await storeAddressBook.loadUserAddressbooks()
+
+const { getUserAddressbooks, getUserDefaultAddressbook, selectedAddressbook } =
+  useAddressBook()
+
+// onMounted(() => {
+getUserAddressbooks()
+// })
 
 const fnPlaceOrder = async (e: Event) => {
   e.preventDefault()
@@ -49,19 +52,13 @@ const fnPlaceOrder = async (e: Event) => {
         timer: 2000,
       })
 
-      const response: any = await placeOrder(dataOrder)
-      console.log(response)
-      if (response.result) {
-        storeShop.setOrder(response.order)
-
-        router.push('/mall/payment')
-      }
+      await placeOrder(dataOrder)
     }
   } catch (error: any) {
     Swal.fire({
       icon: 'error',
       title: 'Oops...',
-      text: 'Place order failed!',
+      text: error,
       footer: '<a href="">Contact admin?</a>',
     })
   }
@@ -155,14 +152,12 @@ const fnPlaceOrder = async (e: Event) => {
                         <input
                           :value="selectedAddressbook?.address_first"
                           class="border border-solid border-gray-300 w-full py-1 px-5 mb-5 placeholder-current text-dark h-12 focus:outline-none text-base dark:text-gray-300"
-                          placeholder="House number and street name"
                           type="text"
                           disabled
                         />
                         <input
                           :value="selectedAddressbook?.address_last"
                           class="border border-solid border-gray-300 w-full py-1 px-5 mb-5 placeholder-current text-dark h-12 focus:outline-none text-base dark:text-gray-300"
-                          placeholder="Apartment, suite, unit etc."
                           type="text"
                           disabled
                         />

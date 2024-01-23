@@ -48,39 +48,44 @@ export const updateAddressbook = `
   }
 `
 
+// {
+//   "useId": {
+//     "eq": 1
+//   }
+// }
 export const queryUserAddressbooks = `
-  query userAddressbooks {
-    userAddressbooks {
-      data {
-        id
-        attributes {
-          name
-          address_last
-          address_first
-          phone
-          email
-          postcode
-          as_default
-        }
+query userAddressbooks($useId:IDFilterInput!) {
+  addressbooks(filters:{user:{id:$useId}}) {
+    data {
+      id
+      attributes {
+        name
+        address_last
+        address_first
+        phone
+        email
+        postcode
+        as_default
       }
     }
   }
+}
 `
 export const queryUserDefaultAddressbook = `
-  query userDefaultAddressbook {
-    userDefaultAddressbook {
-      data {
-        id
-        attributes {
-          receiver
-          address_last
-          address_first
-          phone
-          email
-          postcode
-          as_default
-        }
+query userAddressbooks($useId:IDFilterInput!) {
+  addressbooks(filters:{user:{id:$useId},as_default:true}) {
+    data {
+      id
+      attributes {
+        name
+        address_last
+        address_first
+        phone
+        email
+        postcode
+        as_default
       }
     }
   }
+}
 `

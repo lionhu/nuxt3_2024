@@ -144,10 +144,13 @@ export const useShopStore = defineStore('shop', {
       }
     },
     checkCartitemIndex(item: SimpleCartItem): number {
-      return this.cartitems.findIndex(
-        (_item: SimpleCartItem) =>
-          _item.product === item.product && _item.variation === item.variation,
-      )
+      return this.cartitems.length === 0
+        ? -1
+        : this.cartitems.findIndex(
+            (_item: SimpleCartItem) =>
+              _item.product.id === item.productId &&
+              _item.variation.id === item.variationId,
+          )
     },
     removeCartItem(item: SimpleCartItem) {
       const indexCartItem = this.checkCartitemIndex(item)
@@ -172,18 +175,20 @@ export const useShopStore = defineStore('shop', {
     prepareCartItem(item: SimpleCartItem): DisplayCartItem | null {
       let _item = null
 
+      console.log('prepareCartItem', item)
+
       const idxProduct = this.products.findIndex(
-        (_product: Product) => _product.id === item.product,
+        (_product: Product) => _product.id === item.productId,
       )
       if (idxProduct > -1) {
         const idxVariation = this.products[idxProduct].variations.findIndex(
-          (_variation: Variation) => _variation.id === item.variation,
+          (_variation: Variation) => _variation.id === item.variationId,
         )
         if (idxVariation > -1) {
           _item = {
             ...item,
-            obj_product: this.products[idxProduct],
-            obj_variation: this.products[idxProduct].variations[idxVariation],
+            product: this.products[idxProduct],
+            variation: this.products[idxProduct].variations[idxVariation],
           }
         }
       }

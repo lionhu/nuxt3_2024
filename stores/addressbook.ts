@@ -1,7 +1,7 @@
 import { defineStore, acceptHMRUpdate } from 'pinia'
 import type { Addressbook } from '~~/types/addressbook'
 
-const { getUserAddressbooks, optDeleteAddressbook } = useAddressBook()
+// const { getUserAddressbooks, optDeleteAddressbook } = useAddressBook()
 
 export interface stateAddressbook {
   myAddressbooks: Addressbook[]
@@ -27,22 +27,14 @@ export const useAddressbookStore = defineStore('addressbooks', {
       this.myAddressbooks = []
       this.selectedAddressbook = null
     },
-    async loadUserAddressbooks(): Promise<any> {
+    setMyAddressBook(addressbooks: Addressbook[]) {
+
       this.reset()
-      try {
-        const response = await getUserAddressbooks()
-        if (!response || response.length === 0) {
-          this.selectedAddressbook = null
-          return []
-        }
-        response.map((address: any) => {
+      if (addressbooks.length) {
+        this.myAddressbooks = addressbooks
+        addressbooks.forEach((address: any) => {
           if (address.as_default) this.selectedAddressbook = address
-          return address
         })
-        this.myAddressbooks = response || []
-        if (!this.selectedAddressbook) this.selectedAddressbook = response[0]
-      } catch (error) {
-        console.log(error)
       }
     },
     async deleteAddressBook(uid: string) {

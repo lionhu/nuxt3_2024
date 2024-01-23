@@ -27,7 +27,7 @@ export const useShop = () => {
   const dataLoading = useState<boolean>('showDataLoading')
   const showQuickview = ref(false)
   const { t } = useLang()
-  
+
   const {
     categories,
     settings,
@@ -130,14 +130,19 @@ export const useShop = () => {
     }
     dataLoading.value = false
   }
-  async function placeOrder(data: any): Promise<any> {
+  async function placeOrder(data: any) {
     dataLoading.value = true
     try {
-      const result = await storeShop.placeOrder(data)
+      const response = await storeShop.placeOrder(data)
       dataLoading.value = false
-      return result
-    } catch (error) {
-      console.log('placeOrder error', error)
+      if (response.result) {
+        storeShop.setOrder(response.order)
+        router.push('/mall/payment')
+      } else {
+        throw new Error('Failed to place orer!')
+      }
+    } catch (error: any) {
+      throw new Error(error)
     }
     dataLoading.value = false
   }
