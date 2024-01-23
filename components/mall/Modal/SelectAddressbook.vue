@@ -85,7 +85,7 @@ const selectOneAddress = (uid: string) => {
                   class="text-lg font-medium leading-6 text-gray-900"
                 >
                   <div class="flex justify-between items-center">
-                    <span>{{ t('apps.mall.addressbook.title') }}</span>
+                    <span>{{ t('pages.mall.addressbook.title') }}</span>
                     <WidgetButton
                       v-if="addMode"
                       class="capitalize"
@@ -93,8 +93,11 @@ const selectOneAddress = (uid: string) => {
                       type="opposite"
                       @click="addMode = !addMode"
                     >
-                      <!-- <IconMdiCardAccountDetails class="inline-block mr-1" /> -->
-                      <span>{{ $t('components.addressbook.title') }}</span>
+                      <Icon
+                        name="icomoon-free:address-book"
+                        class="inline-block mr-1"
+                      />
+                      <span>{{ $t('pages.mall.addressbook.title') }}</span>
                     </WidgetButton>
                     <WidgetButton
                       v-else
@@ -103,8 +106,11 @@ const selectOneAddress = (uid: string) => {
                       type="opposite"
                       @click="addMode = !addMode"
                     >
-                      <!-- <IconMdiCardAccountDetails class="inline-block mr-1" /> -->
-                      <span>{{ $t('components.addressbook.add_new') }}</span>
+                      <Icon
+                        name="icomoon-free:address-book"
+                        class="inline-block mr-1"
+                      />
+                      <span>{{ $t('pages.mall.addressbook.add_new') }}</span>
                     </WidgetButton>
                   </div>
                 </DialogTitle>
@@ -123,8 +129,11 @@ const selectOneAddress = (uid: string) => {
                       type="danger"
                       @click="deleteAddressBook(selectedAddressBookID)"
                     >
-                      <!-- <IconMdiTrashCan class="inline-block mr-1" /> -->
-                      {{ $t('components.addressbook.delete') }}
+                      <Icon
+                        name="ph:trash-fill"
+                        class="inline-block mr-1 text-gray-300"
+                      />
+                      {{ $t('pages.mall.addressbook.delete') }}
                     </WidgetButton>
                     <WidgetButton
                       class="capitalize"
@@ -132,10 +141,11 @@ const selectOneAddress = (uid: string) => {
                       type="opposite"
                       @click="selectOneAddress(selectedAddressBookID)"
                     >
-                      <!-- <IconMdiCheckDecagram
-                        class="inline-block mr-1 text-green-300"
-                      /> -->
-                      {{ $t('components.addressbook.select') }}
+                      <Icon
+                        name="ep:select"
+                        class="inline-block mr-1 text-gray-300"
+                      />
+                      {{ $t('pages.mall.addressbook.select') }}
                     </WidgetButton>
                   </div>
                 </div>

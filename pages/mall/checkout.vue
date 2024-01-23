@@ -45,7 +45,7 @@ const fnPlaceOrder = async (e: Event) => {
       }
       showToast({
         icon: 'info',
-        title: t('pages.auth.login.register_processing'),
+        title: t('pages.mall.checkout.place_order_processing'),
         timer: 2000,
       })
 
@@ -99,7 +99,7 @@ const fnPlaceOrder = async (e: Event) => {
     </LayoutPageHeader>
     <LayoutPageSection>
       <client-only>
-        <div class="py-4 md:py-12">
+        <div class="px-4 py-4 md:py-12">
           <div class="grid grid-cols-12 gap-5">
             <div class="col-span-12 lg:col-span-7">
               <div>

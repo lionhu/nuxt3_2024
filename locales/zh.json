@@ -41,7 +41,8 @@
       },
       "checkout": {
         "billing_detail": "结账信息",
-        "place_order": "确认下单"
+        "place_order": "确认下单",
+        "place_order_processing": "下单处理中...",
       },
       "payment": {
         "title": "结算",
@@ -55,7 +56,10 @@
         "phone": "电话",
         "email": "邮箱",
         "address": "地址",
-        "address_2": "地址2"
+        "address_2": "地址2",
+        "add_new": "新增",
+        "delete": "删除",
+        "select": "选择"
       },
       "modals": {
         "product_detail": {

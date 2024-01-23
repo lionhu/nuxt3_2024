@@ -41,7 +41,6 @@ watch(selected, () => {
   <div class="option-group-container relative flex">
     <div class="w-full p-1 sm:p-4">
       <div class="mx-auto w-full max-w-md">
-        <h2>{{ modelValue }}</h2>
         <RadioGroup v-model="selected">
           <div class="space-y-2">
             <RadioGroupOption
@@ -72,13 +71,15 @@ watch(selected, () => {
                       >
                         <div class="flex justify-between">
                           <span>
-                            <IconUilUserCircle class="inline-block mr-2" />{{
-                              item.receiver
-                            }}
+                            <Icon
+                              name="uil:user-circle"
+                              class="inline-block mr-2"
+                            />{{ item.receiver }}
                           </span>
 
                           <span v-if="item.as_default">
-                            <IconMdiCheckDecagram
+                            <Icon
+                              name="mdi:check-decagram"
                               class="inline-block mr-1 text-green-300"
                             />(default)
                           </span>
@@ -90,7 +91,8 @@ watch(selected, () => {
                         :class="checked ? 'text-sky-100' : 'text-gray-500'"
                       >
                         <span>
-                          <IconMaterialSymbolsHome
+                          <Icon
+                            name="ion:home-sharp"
                             class="inline-block mr-1"
                           />{{ item.postcode }}</span
                         >
@@ -99,11 +101,13 @@ watch(selected, () => {
                         <span aria-hidden="true"> &middot; </span>
                         <span>{{ item.address_last }}</span>
                         <p>
-                          <IconMdiPhoneDial class="inline-block mr-1" />{{
-                            item.phone
-                          }}
+                          <Icon
+                            name="ic:round-phone"
+                            class="inline-block mr-1"
+                          />{{ item.phone }}
                           <br />
-                          <IconMdiEmailOpenOutline
+                          <Icon
+                            name="ic:round-email"
                             class="inline-block mr-1"
                           />{{ item.email }}
                         </p>
