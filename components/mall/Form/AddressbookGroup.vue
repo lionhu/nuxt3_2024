@@ -8,43 +8,28 @@ import {
 } from '@headlessui/vue'
 import type { PropType } from 'vue'
 import type { Addressbook } from '~/types/addressbook'
-import { useAddressbookStore } from '~/stores/addressbook'
 
 const props = defineProps({
   modelValue: {
-    type: String,
-    default: '',
-  },
-  items: {
-    type: Array as PropType<Addressbook[]>,
-    default: () => [],
+    type: Object as PropType<Addressbook>,
+    default: null,
   },
 })
 
-// console.log(props.modelValue, typeof props.modelValue)
 const emit = defineEmits(['update:modelValue'])
-// update modelValue method 1 change modelValue will change parent's ref variable
-const modelValue = useSyncProps<String>(props, 'modelValue', emit)
-const _addressbooks = ref<Addressbook[]>(props.items)
+const address = useSyncProps<string>(props, 'modelValue', emit)
 
-const { selectedAddressbook } = useAddressbookStore()
-
-const selected = ref(props.items[0])
-emit('update:modelValue', props.items[0].id)
-
-watch(selected, () => {
-  emit('update:modelValue', (selected.value as Addressbook).id)
-})
+const { myAddressbooks } = useAddressBook()
 </script>
 
 <template>
   <div class="option-group-container relative flex">
     <div class="w-full p-1 sm:p-4">
       <div class="mx-auto w-full max-w-md">
-        <RadioGroup v-model="selected">
+        <RadioGroup v-model="address">
           <div class="space-y-2">
             <RadioGroupOption
-              v-for="item in _addressbooks"
+              v-for="item in myAddressbooks"
               :key="item.id"
               v-slot="{ active, checked }"
               as="template"
@@ -74,14 +59,14 @@ watch(selected, () => {
                             <Icon
                               name="uil:user-circle"
                               class="inline-block mr-2"
-                            />{{ item.receiver }}
+                            />{{ item.name }}
                           </span>
 
                           <span v-if="item.as_default">
                             <Icon
                               name="mdi:check-decagram"
                               class="inline-block mr-1 text-green-300"
-                            />(default)
+                            />
                           </span>
                           <span>#{{ item.id }}</span>
                         </div>

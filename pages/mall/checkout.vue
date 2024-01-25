@@ -130,7 +130,6 @@ const fnPlaceOrder = async (e: Event) => {
                         />
                       </div>
                     </div>
-                    <div></div>
                     <div>
                       <div>
                         <label class="mb-3 inline-block">{{

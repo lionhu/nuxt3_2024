@@ -19,6 +19,9 @@ export const useAddressbookStore = defineStore('addressbooks', {
     getterSelectAddressbook(): any {
       return this.selectedAddressbook || {}
     },
+    SelectedAddressbookID(): string {
+      return this.selectedAddressbook ? this.selectedAddressbook.id : ''
+    },
   },
 
   // actions -> 状態を変更するaction(methodsに相当)
@@ -28,35 +31,18 @@ export const useAddressbookStore = defineStore('addressbooks', {
       this.selectedAddressbook = null
     },
     setMyAddressBook(addressbooks: Addressbook[]) {
-
       this.reset()
-      if (addressbooks.length) {
+      if (addressbooks && addressbooks.length) {
         this.myAddressbooks = addressbooks
         addressbooks.forEach((address: any) => {
           if (address.as_default) this.selectedAddressbook = address
         })
       }
     },
-    async deleteAddressBook(uid: string) {
-      if (
-        this.selectedAddressbook &&
-        (this.selectedAddressbook as Addressbook).id === uid
-      ) {
-        this.selectedAddressbook = null
-      }
-      try {
-        const response = await optDeleteAddressbook(uid)
-        // console.log(`deleteAddressBook response:`, response.deleteAddressbook)
-        if (response.deleteAddressbook && response.deleteAddressbook.id) {
-          const index = this.myAddressbooks.findIndex(
-            (item) => item.id === response.deleteAddressbook.id,
-          )
-          if (index > -1) {
-            this.myAddressbooks.splice(index, 1)
-          }
-        }
-      } catch (error) {
-        console.log(error)
+    deleteAddressBook(uid: string) {
+      const index = this.myAddressbooks.findIndex((item) => item.id === uid)
+      if (index > -1) {
+        this.myAddressbooks.splice(index, 1)
       }
     },
     setSelectedAddressBookID(uid: string) {

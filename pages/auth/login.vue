@@ -7,7 +7,6 @@ definePageMeta({
   layout: 'auth',
 })
 
-
 const { t } = useLang()
 const { awesome } = useAppConfig()
 

@@ -15,7 +15,8 @@ import { useAddressbookStore } from '~~/stores/addressbook'
 
 export const useAddressBook = () => {
   const storeAddress = useAddressbookStore()
-  const { myAddressbooks, selectedAddressbook } = storeToRefs(storeAddress)
+  const { myAddressbooks, selectedAddressbook, SelectedAddressbookID } =
+    storeToRefs(storeAddress)
 
   async function getUserAddressbooks() {
     try {
@@ -58,10 +59,10 @@ export const useAddressBook = () => {
       const { data } = await graphql<any>(deleteAddressbook, {
         id: _id,
       })
-      return data
+      if (_id === (data.deleteAddressbook as Addressbook).id)
+        storeAddress.deleteAddressBook(_id)
     } catch (error) {
       console.log('optDeleteAddressbook', error)
-      return null
     }
   }
 
@@ -85,21 +86,29 @@ export const useAddressBook = () => {
       const { data } = await graphql<any>(addAddressbook, {
         data: _addressbook,
       })
-      return data
+      if (data.createAddressbook?.id) {
+        delete data.createAddressbook.__typename
+        storeAddress.setSelectedAddressBook(data.createAddressbook)
+      }
     } catch (error) {
       console.log('optAddAddressbook', error)
-      return null
+      throw new Error('Fail to add address')
     }
   }
 
+  function selectAddressbookID(_id: string) {
+    storeAddress.setSelectedAddressBookID(_id)
+  }
   return {
     myAddressbooks,
     selectedAddressbook,
+    SelectedAddressbookID,
 
     getUserAddressbooks,
     getUserDefaultAddressbook,
     optAddAddressbook,
     optUpdateAddressbook,
     optDeleteAddressbook,
+    selectAddressbookID,
   }
 }

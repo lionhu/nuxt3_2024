@@ -8,9 +8,8 @@ import {
   TransitionRoot,
   TransitionChild,
 } from '@headlessui/vue'
-import { storeToRefs } from 'pinia'
-import { useAddressbookStore } from '~/stores/addressbook'
 import { randomToken } from '~~/utils/str'
+import type { Addressbook } from '~/types/addressbook'
 
 const props = defineProps({
   modelValue: {
@@ -22,19 +21,27 @@ const { t } = useLang()
 const emit = defineEmits(['update:modelValue'])
 const modelValue = useSyncProps<boolean>(props, 'modelValue', emit)
 const addMode = ref(false)
-const { selectedAddressbook, deleteAddressBook, setSelectedAddressBookID } =
-  useAddressbookStore()
+const chooseAddress: any = ref(null)
 
-const storeAddressbook = useAddressbookStore()
-const { myAddressbooks } = storeToRefs(storeAddressbook)
+const {
+  myAddressbooks,
+  selectAddressbookID,
+  selectedAddressbook,
+  optDeleteAddressbook,
+} = useAddressBook()
 function setIsOpen(value: any) {
-  emit('update:modelValue', value)
+  modelValue.value = false
 }
-
-const selectedAddressBookID = ref('')
-const selectOneAddress = (uid: string) => {
-  setSelectedAddressBookID(uid)
-  setIsOpen(false)
+const deleteOneAddress = () => {
+  if (chooseAddress.value && chooseAddress.value.id) {
+    optDeleteAddressbook(chooseAddress.value.id)
+  }
+}
+const selectOneAddressbook = () => {
+  if (chooseAddress.value && chooseAddress.value.id) {
+    selectAddressbookID(chooseAddress.value.id)
+    setIsOpen(false)
+  }
 }
 </script>
 
@@ -116,10 +123,7 @@ const selectOneAddress = (uid: string) => {
                 </DialogTitle>
                 <div v-if="!addMode && myAddressbooks?.length">
                   <div class="mt-1">
-                    <MallFormAddressbookGroup
-                      v-model="selectedAddressBookID"
-                      :items="myAddressbooks"
-                    />
+                    <MallFormAddressbookGroup v-model="chooseAddress" />
                   </div>
 
                   <div class="mt-4 flex justify-between">
@@ -127,7 +131,7 @@ const selectOneAddress = (uid: string) => {
                       class="capitalize"
                       size="sm"
                       type="danger"
-                      @click="deleteAddressBook(selectedAddressBookID)"
+                      @click="deleteOneAddress"
                     >
                       <Icon
                         name="ph:trash-fill"
@@ -139,7 +143,7 @@ const selectOneAddress = (uid: string) => {
                       class="capitalize"
                       size="sm"
                       type="opposite"
-                      @click="selectOneAddress(selectedAddressBookID)"
+                      @click="selectOneAddressbook"
                     >
                       <Icon
                         name="ep:select"
