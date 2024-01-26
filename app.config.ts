@@ -1,9 +1,9 @@
 import type { RouteLocationRaw } from 'vue-router'
-import { NuxtApp } from '#app'
 import {
   AwesomeLayoutPageNavbarMenu,
   AwesomeLayoutPageNavbarMenuDropdownItem,
 } from './types'
+import { NuxtApp } from '#app'
 
 export interface NuxtAwesomeAppConfig {
   /** title name */
@@ -22,7 +22,19 @@ export interface NuxtAwesomeAppConfig {
       website?: string
     }
   }
-
+  mall?: {
+    payments?: {
+      alipay?: {
+        image?: string
+      }
+      wechat?: {
+        image?: string
+      }
+      creditcard?: {
+        image?: string
+      }
+    }
+  }
   /** layout config */
   layout?: {
     /** page layout */
@@ -87,6 +99,9 @@ export default defineAppConfig({
       links: {
         github: 'https://github.com/viandwi24/nuxt3-awesome-starter',
       },
+      logos: {
+        website: 'https://',
+      },
     },
     layout: {
       page: {
@@ -118,6 +133,7 @@ export default defineAppConfig({
         website: 'https://viandwi24.site',
       },
     },
+
     disableInfoReplaceIndexInWelcomePage: false,
   } as NuxtAwesomeAppConfig,
   nuxtIcon: {

@@ -1,4 +1,4 @@
-import { NuxtAwesomeAppConfig } from './app.config'
+import type { NuxtAwesomeAppConfig } from './app.config'
 
 export default defineNuxtSchema({
   appConfig: {
@@ -9,6 +9,9 @@ export default defineNuxtSchema({
       project: {
         links: {
           github: 'https://github.com/viandwi24/nuxt3-awesome-starter',
+        },
+        logos: {
+          website: 'https://',
         },
       },
       layout: {
@@ -23,6 +26,19 @@ export default defineNuxtSchema({
         welcome: {
           title: 'Nuxt&nbsp;3 Awesome Starter',
           disableInfoReplaceIndexInWelcomePage: true,
+        },
+      },
+      mall: {
+        payments: {
+          alipay: {
+            image: '',
+          },
+          wechat: {
+            image: '',
+          },
+          creditcard: {
+            image: '',
+          },
         },
       },
       author: {

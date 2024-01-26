@@ -62,3 +62,7 @@ ver5.1
    6.2. landing5
 
 7. PWA setup
+
+8. extend nuxt.schema.ts with awesome
+  在nuxt.schema.ts文件里追加awesome的内容，然后在app中的app.config.tx中
+  设定具体内容。这样在vue文件中的类型检查时就不会出现错误。

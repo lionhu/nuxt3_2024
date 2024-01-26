@@ -93,7 +93,7 @@ export default <Partial<Config>>{
     },
   },
   shortcuts: {
-    'hyperlink-btn-dark':
-      'block w-full text-center leading-none uppercase text-white text-sm bg-dark px-5 py-5 transition-all hover:bg-orange font-semibold',
+    // 'hyperlink-btn-dark':
+    //   'block w-full text-center leading-none uppercase text-white text-sm bg-dark px-5 py-5 transition-all hover:bg-orange font-semibold',
   },
 }

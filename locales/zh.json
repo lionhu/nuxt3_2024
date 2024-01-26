@@ -42,12 +42,15 @@
       "checkout": {
         "billing_detail": "结账信息",
         "place_order": "确认下单",
-        "place_order_processing": "下单处理中...",
+        "place_order_processing": "下单处理中..."
       },
       "payment": {
         "title": "结算",
         "delivery": "收件信息",
-        "pay_by_creditcard": "信用卡支付"
+        "pay_by_creditcard": "信用卡支付",
+        "alipay": "支付宝支付",
+        "wechat": "微信支付",
+        "creditcard": "信用卡"
       },
       "addressbook": {
         "title": "通讯录",

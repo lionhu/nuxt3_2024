@@ -46,6 +46,19 @@ export default defineAppConfig({
         website: 'https://viandwi24.site',
       },
     },
+    mall: {
+      payments: {
+        alipay: {
+          image: '',
+        },
+        wechat: {
+          image: '',
+        },
+        creditcard: {
+          image: 'hello creditcard',
+        },
+      },
+    },
   },
   ui: {
     primary: 'orange',
