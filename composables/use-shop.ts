@@ -157,8 +157,14 @@ export const useShop = () => {
   }
   async function orderPayCreditcard(orderId: number, data: any): Promise<any> {
     try {
-      const result = await storeShop.orderPayCreditcard(orderId, data)
-      return result
+      // const result = await storeShop.orderPayCreditcard(orderId, data)
+      console.log('orderPayCreditcard', orderId, data)
+      const client = useStrapiClient()
+      const response = await client(`/order/${orderId}/pay`, {
+        method: 'POST',
+        body: { data },
+      })
+      return response
     } catch (error) {
       console.log('orderPayCreditcard error: ', error)
       return false

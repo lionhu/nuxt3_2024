@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { DisplayCartItem } from '~~/types/shop'
 import { useShopStore } from '~~/stores/use-shop'
+import type { Product, Variation } from '~~/types/shop'
 
 const props = defineProps({
   editable: {
@@ -17,8 +18,8 @@ const { showToast } = useSwal()
 const { cartitems, emptyCart } = useShop()
 const operateCartItem = (
   action: string,
-  product: number,
-  variation: number,
+  product: Product,
+  variation: Variation,
   price: number,
   qty: number = 1,
 ) => {
@@ -26,8 +27,8 @@ const operateCartItem = (
     qty,
     total: qty * price,
     price,
-    product,
-    variation,
+    productId: product.id,
+    variationId: variation.id,
   }
 
   let nowNum = 0
