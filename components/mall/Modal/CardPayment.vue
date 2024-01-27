@@ -107,7 +107,7 @@ const pay_order = (e: Event) => {
       }
 
       Swal.fire({
-        title: 'Pay your order by Credit Card',
+        title: t('pages.mall.payment.pay_by_creditcard'),
         icon: 'info',
         showCancelButton: true,
         confirmButtonText: t('buttons.continue'),
@@ -191,7 +191,7 @@ const setIsOpen = (value: any) => {
                   class="text-lg font-medium leading-6 text-gray-900 mb-4"
                 >
                   <div class="flex justify-between items-center">
-                    <span>Pay by Creditcard</span>
+                    <span>{{ t('pages.mall.payment.pay_by_creditcard') }}</span>
                   </div>
                 </DialogTitle>
                 <div
@@ -214,10 +214,12 @@ const setIsOpen = (value: any) => {
                       class="flex flex-col-reverse md:flex-row items-center md:justify-between px-1"
                     >
                       <span class="dark:text-gray-700"
-                        ><strong>Amount: </strong>{{ currencyJPY(Total) }}</span
+                        ><strong>{{ t('pages.mall.order.id') }}: </strong
+                        >{{ currencyJPY(Total) }}</span
                       >
                       <span class="dark:text-gray-700"
-                        ><strong>Order ID: </strong>#WA{{ order_id }}</span
+                        ><strong>{{ t('pages.mall.order.amount') }}: </strong
+                        >#WA{{ order_id }}</span
                       >
                     </div>
                     <div
@@ -237,7 +239,7 @@ const setIsOpen = (value: any) => {
                           href="javascript:void(0)"
                           class="hyperlink-btn-dark"
                           @click="pay_order"
-                          >Pay order</a
+                          >{{ t('pages.mall.payment.pay') }}</a
                         >
                       </div>
                     </div>

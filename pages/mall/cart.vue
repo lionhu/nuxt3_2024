@@ -114,7 +114,7 @@ watch(Qty, (newVal) => {
                     class="block w-full text-center leading-none uppercase text-white text-sm bg-dark px-5 py-5 transition-all hover:bg-primary font-semibold"
                     refresh
                   >
-                    {{ t('pages.mall.cart.checkout') }}
+                    {{ t('pages.mall.cart.place_order') }}
                   </nuxt-link>
                 </div>
               </div>

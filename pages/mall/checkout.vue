@@ -25,9 +25,9 @@ const { placeOrder, Qty, Total, ValidCart, cartitems } = useShop()
 const { getUserAddressbooks, getUserDefaultAddressbook, selectedAddressbook } =
   useAddressBook()
 
-// onMounted(() => {
-getUserAddressbooks()
-// })
+onMounted(async () => {
+  await getUserAddressbooks()
+})
 
 const fnPlaceOrder = async (e: Event) => {
   e.preventDefault()
@@ -153,7 +153,7 @@ const fnPlaceOrder = async (e: Event) => {
                     class="hyperlink-btn-dark"
                     href="javascript:void(0)"
                     @click="fnPlaceOrder"
-                    >{{ t('pages.mall.checkout.place_order') }}
+                    >{{ t('pages.mall.checkout.checkout') }}
                   </WidgetButton>
                   <p v-else class="text-orange px-3">
                     You have to set Delivery information or your cart
