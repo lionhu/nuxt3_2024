@@ -39,10 +39,7 @@ const hasVariation = computed(() => props.product!.variations.length > 0)
         <TabPanel
           v-for="(image, idx) in product.imagesList"
           :key="idx"
-          :class="[
-            'rounded-xl bg-white p-3 relative aspect-square flex items-center',
-            'ring-white ring-opacity-60 ring-offset-2 ring-offset-primary focus:outline-none focus:ring-2',
-          ]"
+          class="rounded-xl bg-white p-1 relative aspect-square flex items-center ring-white ring-opacity-60 ring-offset-2 ring-offset-primary focus:outline-none focus:ring-2"
         >
           <div
             v-if="product.info && product.info.new"
@@ -69,39 +66,9 @@ const hasVariation = computed(() => props.product!.variations.length > 0)
           <MallWidgetActionIcons @trigger-action="processAction" />
         </TabPanel>
       </TabPanels>
-      <div class="mx-auto">
-        <TabList class="flex justify-evenly space-x-3 rounded-xl px-2 mt-2">
-          <Tab
-            v-for="(image, idx) in product.images"
-            :key="idx"
-            :name="product.name"
-            :title="product.name"
-            as="template"
-          >
-            <button
-              class="flex-0 rounded-full w-8 h-8 overflow-hidden hover:(border-2 border-orange) border-1 border-white'"
-            >
-              <img
-                :src="
-                  getStrapiMedia(image.url, 'format=webp&resize=60x60&embed')
-                "
-              />
-            </button>
-          </Tab>
-        </TabList>
-      </div>
     </TabGroup>
 
     <div class="py-5 px-4">
-      <!-- <ul class="mb-3 text-sm capitalize">
-        <li class="flex flex-wrap items-center justify-between">
-          <span><span>Sold: </span><span class="text-orange">10</span></span>
-          <span
-            ><span>Available: </span> <span class="text-orange">12</span>
-          </span>
-        </li>
-      </ul>
-      <WidgetsIndicator :valuemax="100" :valuemin="0" :valuenow="75" /> -->
       <h3 class="mt-4">
         <a
           class="block text-base hover:text-orange transition-all"
@@ -115,8 +82,8 @@ const hasVariation = computed(() => props.product!.variations.length > 0)
         class="font-bold text-md leading-none text-orange mt-3"
       >
         <!-- <del class="font-normal text-sm mr-1 inline-block">$110.00</del> -->
-        {{ minProductPrice(product) }}
-        {{ hasVariation && '~' }}
+        {{ hasVariation ? minProductPrice(product) : '' }}
+        {{ hasVariation ? '~' : '' }}
       </h4>
       <button
         v-else

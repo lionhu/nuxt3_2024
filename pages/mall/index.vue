@@ -171,14 +171,11 @@ onMounted(() => {
                 </div>
               </div>
 
-              <div class="mt-10">
+              <div class="mt-10 dark:bg-gray-800 bg-gray-50 p-4">
                 <div id="grid" class="shop-tab-content active">
-                  <div class="flex flex-wrap -mb-7 -px-4">
+                  <div class="flex flex-wrap">
                     <client-only>
-                      <div
-                        v-if="gridview"
-                        class="grid md:grid-cols-3 gap-4 max-h-screen overflow-y-auto"
-                      >
+                      <div v-if="gridview" class="grid md:grid-cols-3 gap-4">
                         <MallCardProductGrid
                           v-for="(product, idx) in products"
                           :key="idx"
@@ -186,7 +183,7 @@ onMounted(() => {
                         />
                       </div>
                       <div v-else id="list" class="shop-tab-content active">
-                        <div class="flex flex-wrap -mb-7 -px-4">
+                        <div class="flex flex-wrap">
                           <MallCardProductList
                             v-for="(product, idx) in products"
                             :key="idx"
