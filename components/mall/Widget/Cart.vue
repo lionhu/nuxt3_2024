@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import type { DisplayCartItem } from '~~/types/shop'
+import type { DisplayCartItem, Product, Variation } from '~~/types/shop'
 import { useShopStore } from '~~/stores/use-shop'
-import type { Product, Variation } from '~~/types/shop'
 
 const props = defineProps({
   editable: {
@@ -64,11 +63,11 @@ const operateCartItem = (
   >
     <div class="pt-3 flex justify-between items-center">
       <span
-        class="lg:text-4xl text-3xl font-black leading-10 text-gray-800 dark:text-white"
+        class="lg:text-2xl text-xl font-black leading-10 text-gray-800 dark:text-white"
       >
         {{ t('pages.mall.cart.title') }}
       </span>
-      <a href="javascript:void(0);" @click="emptyCart">
+      <a v-if="editable" href="javascript:void(0);" @click="emptyCart">
         <span class="lg:text-2xl text-xl font-black leading-10 text-red-800">
           <Icon name="carbon:shopping-cart-clear" />
         </span>

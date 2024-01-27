@@ -28,30 +28,11 @@ watch(Qty, (newVal) => {
 <template>
   <LayoutPageWrapper>
     <LayoutPageHeader>
-      <div class="py-9 bg-gray-200 dark:bg-gray-700">
-        <div class="container mx-auto">
-          <div class="grid grid-cols-12 gap-x-4">
-            <div class="col-span-12">
-              <nav>
-                <ul class="flex flex-wrap items-center justify-center">
-                  <li class="mr-5">
-                    <nuxt-link
-                      to="/"
-                      class="text-dark font-bold text-base uppercase transition-all hover:text-orange relative before:w-5 before:h-1px before:empty before:absolute before:top-3 before:bg-dark before:transform before:rotate-115 before:-right-5 dark:text-gray-300"
-                      >Home</nuxt-link
-                    >
-                  </li>
-                  <li
-                    class="text-dark font-bold text-base uppercase mr-5 dark:text-gray-300"
-                  >
-                    Checkout page
-                  </li>
-                </ul>
-              </nav>
-            </div>
-          </div>
-        </div>
-      </div>
+      <h2
+        class="text-dark text-xl font-bold text-base uppercase mr-5 dark:text-gray-300"
+      >
+        {{ t('pages.mall.cart.title') }}
+      </h2>
     </LayoutPageHeader>
 
     <LayoutPageSection>
