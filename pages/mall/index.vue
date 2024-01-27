@@ -72,36 +72,36 @@ onMounted(() => {
     <LayoutPageSection>
       <div class="md:pt-12">
         <div class="w-[90%] mx-auto">
-          <div class="flex flex-wrap flex-col lg:flex-row">
-            <div class="lg:w-1/4 px-4 order-last lg:order-first mt-8 lg:mt-0">
-              <div>
-                <div class="mb-12">
-                  <div class="pro-sidebar-search mb-20 mt-10">
-                    <div class="relative border border-solid border-gray-300">
-                      <input
-                        v-model="searchKeyword"
-                        class="w-full h-12 text-sm py-4 pl-4 pr-16 bg-white text-dark placeholder-current focus:outline-none"
-                        type="search"
-                        name="search"
-                        :placeholder="t('pages.mall.search_placeholder')"
-                      />
-                      <button
-                        class="w-12 h-full absolute top-0 right-0 flex items-center justify-center text-dark text-md border-l border-solid border-gray-300"
-                      >
-                        <Icon name="material-symbols:search" />
-                      </button>
-                    </div>
+          <div class="grid md:grid-cols-12 gap-y-8 md:space-x-12">
+            <div
+              class="col-span-12 md:col-span-3 w-full md:max-w-sm px-4 order-last lg:order-first mt-3 md:mt-8 lg:mt-0"
+            >
+              <div class="mb-3 md:mb-12">
+                <div class="pro-sidebar-search md:mb-20 md:mt-10">
+                  <div class="relative border border-solid border-gray-300">
+                    <input
+                      v-model="searchKeyword"
+                      class="w-full h-12 text-sm py-4 pl-4 pr-16 bg-white text-dark placeholder-current focus:outline-none"
+                      type="search"
+                      name="search"
+                      :placeholder="t('pages.mall.search_placeholder')"
+                    />
+                    <button
+                      class="w-12 h-full absolute top-0 right-0 flex items-center justify-center text-dark text-md border-l border-solid border-gray-300"
+                    >
+                      <Icon name="material-symbols:search" />
+                    </button>
                   </div>
                 </div>
-
-                <MallMenuProductCategory
-                  v-model="currentCategoryId"
-                  @select="selectCategory"
-                ></MallMenuProductCategory>
               </div>
+
+              <MallMenuProductCategory
+                v-model="currentCategoryId"
+                @select="selectCategory"
+              ></MallMenuProductCategory>
             </div>
 
-            <div v-if="searchKeyword" class="flex-1">
+            <div v-if="searchKeyword" class="col-span-12 md:col-span-9">
               <div
                 class="mt-10 flex flex-col xl:flex-row jusitfy-center items-stretch w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0"
               >
@@ -136,7 +136,7 @@ onMounted(() => {
                 </div>
               </div>
             </div>
-            <div v-else id="shoptab" class="flex-1">
+            <div v-else id="shoptab" class="col-span-12 md:col-span-9">
               <div class="flex flex-wrap justify-between items-center px-4">
                 <div class="flex flex-wrap">
                   <client-only>
@@ -175,7 +175,10 @@ onMounted(() => {
                 <div id="grid" class="shop-tab-content active">
                   <div class="flex flex-wrap -mb-7 -px-4">
                     <client-only>
-                      <div v-if="gridview" class="grid md:grid-cols-3 gap-4">
+                      <div
+                        v-if="gridview"
+                        class="grid md:grid-cols-3 gap-4 max-h-screen overflow-y-auto"
+                      >
                         <MallCardProductGrid
                           v-for="(product, idx) in products"
                           :key="idx"
