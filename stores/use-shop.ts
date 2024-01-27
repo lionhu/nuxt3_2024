@@ -107,7 +107,7 @@ export const useShopStore = defineStore('shop', {
   actions: {
     empty() {
       this.categories = []
-      // this.cartitems = []
+      this.cartitems = []
       this.order = null
       this.products = []
       this.settings = null
@@ -372,7 +372,6 @@ export const useShopStore = defineStore('shop', {
     },
     async orderPayCreditcard(id: number, data: any): Promise<any> {
       try {
-        console.log('orderPayCreditcard', id, data)
         const client = useStrapiClient()
         const response = await client(`/order/${id}/pay`, {
           method: 'POST',

@@ -94,7 +94,7 @@ export const queryUserOrders = `
           delivered
           delivered_at
           delivery_info
-          payment_info
+          paid_info
           payment_supplier_info
           users_permissions_user {
             data {
@@ -157,7 +157,7 @@ export const queryUserOrderDetail = `
           paid_at
           paid_supplier
           paid_supplier_at
-          payment_info
+          paid_info
           payment_supplier_info
           createdAt
           delivered

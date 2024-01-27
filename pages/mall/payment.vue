@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { storeToRefs } from 'pinia'
 import { capitalize, currencyJPY } from '~/utils/str'
 const app: any = useAppConfig()
 
@@ -29,18 +28,7 @@ useHead(() => ({
 }))
 
 const isCardPaymentOpen = ref(false)
-const {
-  orderPayCreditcard,
-  settings,
-  order,
-  cartitems,
-  Qty,
-  Total,
-  ValidCart,
-} = useShop()
-
-// const storeAddressBook = useAddressbookStore()
-// const { selectedAddressbook } = storeToRefs(storeAddressBook)
+const { settings, order, cartitems, Total, ValidCart } = useShop()
 
 const showPaymentModal = (e: Event) => {
   e.preventDefault()
@@ -204,7 +192,6 @@ const showPaymentModal = (e: Event) => {
                   </div>
                 </div>
               </div>
-              
             </div>
           </div>
         </div>

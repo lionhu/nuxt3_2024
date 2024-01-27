@@ -83,7 +83,7 @@ export interface Order {
   paid_at: Date
   paid_supplier: boolean
   paid_supplier_at: Date
-  payment_info: Record<string, any>
+  paid_info: Record<string, any>
   payment_supplier_info: Record<string, any>
   delivered: boolean
   delivered_at: Date

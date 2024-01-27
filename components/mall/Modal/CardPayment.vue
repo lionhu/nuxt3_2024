@@ -100,47 +100,42 @@ watch(modelValue, async (newvalue, oldvalue) => {
 const pay_order = (e: Event) => {
   e.preventDefault()
   if (props.order_id > 0 && props.Total > 0) {
-    cardCredit
-      .tokenize()
-      .then(async (res: any) => {
-        const dataOrder = {
-          sourceId: res.token,
-          Total: props.Total,
+    cardCredit.tokenize().then(async (res: any) => {
+      const dataOrder = {
+        sourceId: res.token,
+        Total: props.Total,
+      }
+
+      Swal.fire({
+        title: 'Pay your order by Credit Card',
+        icon: 'info',
+        showCancelButton: true,
+        confirmButtonText: t('buttons.continue'),
+        cancelButtonText: t('buttons.cancel'),
+        showLoaderOnConfirm: true,
+        preConfirm: () => {
+          return orderPayCreditcard(props.order_id, dataOrder)
+        },
+        allowOutsideClick: () => !Swal.isLoading(),
+      }).then((result: any) => {
+        if (result.isConfirmed && result.value) {
+          storeShop.empty()
+          emit('update:modelValue', false)
+          showToast({
+            icon: 'success',
+            title: `Order completed`,
+            timer: 3000,
+          })
+          router.push('/mall')
+        } else {
+          showToast({
+            icon: 'error',
+            title: `Place order failed`,
+            timer: 3000,
+          })
         }
-
-        Swal.fire({
-          title: 'Pay your order by Credit Card',
-          icon: 'info',
-          showCancelButton: true,
-          confirmButtonText: t('buttons.continue'),
-          cancelButtonText: t('buttons.cancel'),
-          showLoaderOnConfirm: true,
-          preConfirm: () => {
-            return orderPayCreditcard(props.order_id, dataOrder)
-          },
-          allowOutsideClick: () => !Swal.isLoading(),
-        }).then((result: any) => {
-          if (result.isConfirmed && result.value) {
-            storeShop.empty()
-            storeShop.loadOrder(props.order_id)
-
-            emit('update:modelValue', false)
-            showToast({
-              icon: 'success',
-              title: `Order completed`,
-              timer: 3000,
-            })
-            router.push('/mall')
-          }
-        })
       })
-      .catch((error: any) => {
-        showToast({
-          icon: 'error',
-          title: `Place order failed`,
-          timer: 3000,
-        })
-      })
+    })
   }
 }
 
