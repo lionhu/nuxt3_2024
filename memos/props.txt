@@ -1,0 +1,42 @@
+https://qiita.com/iMasanari/items/31d8a26c7ee22793585c
+Vue + TypeScriptでpropsのObjectやArrayに型をつける
+
+import Vue, { PropType } from 'vue'
+
+// 適当なインターフェース
+interface Bar {}
+
+interface ArrayItem {
+  name: string
+}
+
+Vue.extend({
+  props: {
+    arr: Array as PropType<string[]>,
+    array: {
+      type: Array as PropType<ArrayItem[]>,
+      required: true;
+    },
+    obj: Object as PropType<Bar>,
+    fnc: Function as PropType<() => void>,
+    // 省略可能なプロパティを指定する時にも利用できる
+    optional: {
+      type: String as PropType<string | undefined>,
+      required: false,
+    },
+  },
+  created() {
+    this.arr // string[]型
+    this.obj // Bar型
+    this.fnc // (() => void)型
+    this.optional // (string | undefined)型
+  },
+})
+
+https://qiita.com/ungi_podo/items/e4349ae4dd694917b503
+
+上記のコードのように型アサーションでPropTypeを指定すると
+unknownやanyではない指定した型が割り当てられていました。
+
+しかしPropTypeはバリデーションをかけているのではなく、型を上書きしているので
+validatorやdefaultを設定する必要があります。

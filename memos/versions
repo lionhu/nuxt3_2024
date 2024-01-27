@@ -1,0 +1,44 @@
+** v 17
+  NUXT3 :
+    debug strapi jwt disappear
+  STRAPI:
+    broadcast new type of message
+
+** WAVUS_Nuxt3_Starter_v5.3
+  add chartjs support
+
+** WAVUS_Nuxt3_Starter_v5.2
+ add floating vue package
+
+
+** WAVUS_Nuxt3_Starter_v5.1
+  Yup package installed for input validation
+
+
+** WAVUS_Nuxt3_Starter_v5
+  tailwindcss and daisy installed
+
+** WAVUS_Nuxt3_Starter_v4
+  add windicss-animation
+  combine with vueuse/motion
+
+  example: components/Section/DisplayProduct.vue
+
+
+
+** WAVUS_Nuxt3_Starter_v3
+  Vue3-carousel support (https://ismail9k.github.io/vue3-carousel/getting-started.html)
+  @heroicons/vue
+
+** WAVUS_Nuxt3_Starter_v1
+  googleFonts supports
+
+
+** WAVUS_Nuxt3_Starter_v2
+  @vueuse/motion/nuxt  ## leave custom motion unsupport
+  swiper-slider-nuxt
+
+##init_v1:
+  supports:
+    (1) pm2
+    (2) HMR用のポートを追加

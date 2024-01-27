@@ -78,7 +78,7 @@ const showPaymentModal = (e: Event) => {
             </div>
           </div>
         </LayoutPageHeader>
-        <div class="py-4">
+        <div class="p-4">
           <div class="grid grid-cols-12 gap-5">
             <div class="col-span-12 lg:col-span-7 mt-4 mt-lg-0">
               <div class="w-full">
@@ -204,7 +204,7 @@ const showPaymentModal = (e: Event) => {
                   </div>
                 </div>
               </div>
-              MallWidgetDisplayAddressInfo
+              
             </div>
           </div>
         </div>

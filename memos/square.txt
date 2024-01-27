@@ -1,0 +1,6 @@
+https://inlandapp.com/square-web-payments-sdk-with-nuxt-js-generating-a-card-nonce-on-the-front-end
+
+
+Sandbox card
+5105 1051 0510 5100
+1111
