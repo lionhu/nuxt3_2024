@@ -10,7 +10,7 @@ console.log(awesome?.mall?.payments?.creditcard?.image)
 
 definePageMeta({
   layout: 'page',
-  // middleware: ['enable-shopping', 'auth', 'empty-payment'],
+  middleware: ['enable-shopping', 'auth', 'empty-payment'],
 })
 useHead(() => ({
   // title: capitalize(t('pages.test.title')),
@@ -92,55 +92,9 @@ const showPaymentModal = (e: Event) => {
               <div
                 class="col-span-12 md:col-span-6 lg:col-span-5 xl:col-span-6 mb-10"
               >
-                <h3 class="text-lg font-semibold mb-5">
-                  {{ t('pages.mall.payment.delivery') }}
-                </h3>
-                <ul class="text-gray-800 dark:text-white">
-                  <li class="mb-4">
-                    <span class="list_title font-bold"
-                      >{{ t('pages.mall.addressbook.name') }}:</span
-                    >
-                    <span class="list_content">
-                      {{ order.address_json?.name }}</span
-                    >
-                  </li>
-                  <li class="mb-4">
-                    <span class="list_title font-bold"
-                      >{{ t('pages.mall.addressbook.address') }}:</span
-                    >
-                    <span class="list_content mr-1">
-                      {{ order.address_json?.postcode }}</span
-                    >
-                    <span> {{ order.address_json?.address_first }}</span>
-                  </li>
-                  <li class="mb-4 indent-2em">
-                    <span class="list_content font-bold">
-                      {{ order.address_json?.address_last }}</span
-                    >
-                  </li>
-                  <li class="mb-4">
-                    <span class="list_title font-bold"
-                      >{{ t('pages.mall.addressbook.email') }}:</span
-                    >
-                    <a
-                      class="transition-all hover:text-orange list_content"
-                      href="mailto:info@gmail.com"
-                    >
-                      {{ order.address_json?.email }}</a
-                    >
-                  </li>
-                  <li class="mb-4">
-                    <span class="list_title font-bold"
-                      >{{ t('pages.mall.addressbook.phone') }}:</span
-                    >
-                    <a
-                      class="transition-all hover:text-orange list_content"
-                      :href="`tell:${order.address_json?.phone}`"
-                    >
-                      {{ order.address_json?.phone }}</a
-                    >
-                  </li>
-                </ul>
+                <MallWidgetDeliveryAddressInfo
+                  :address-info="order.address_json"
+                />
                 <div v-if="app.useCoupon" class="mt-4 p-4 border-1 rounded-md">
                   <form action="#">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-5">
@@ -250,6 +204,7 @@ const showPaymentModal = (e: Event) => {
                   </div>
                 </div>
               </div>
+              MallWidgetDisplayAddressInfo
             </div>
           </div>
         </div>
@@ -265,15 +220,6 @@ const showPaymentModal = (e: Event) => {
 </template>
 
 <style>
-.list_title {
-  display: inline-block;
-  width: 6rem;
-  text-align: right;
-}
-.list_content {
-  display: inline-block;
-  margin-left: 1rem;
-}
 .before\:empty::before {
   content: '';
 }

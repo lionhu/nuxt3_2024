@@ -1,8 +1,5 @@
 <script lang="ts" setup>
 import Swal from 'sweetalert2'
-import { storeToRefs } from 'pinia'
-import { useAddressbookStore } from '~~/stores/addressbook'
-import { capitalize, currencyJPY } from '~/utils/str'
 
 const { t } = useLang()
 // compiler macro
@@ -24,10 +21,6 @@ const isopen = ref(false)
 
 const { showToast } = useSwal()
 const { placeOrder, Qty, Total, ValidCart, cartitems } = useShop()
-
-// const storeAddressBook = useAddressbookStore()
-// const { selectedAddressbook } = storeToRefs(storeAddressBook)
-// await storeAddressBook.loadUserAddressbooks()
 
 const { getUserAddressbooks, getUserDefaultAddressbook, selectedAddressbook } =
   useAddressBook()
@@ -96,100 +89,53 @@ const fnPlaceOrder = async (e: Event) => {
     </LayoutPageHeader>
     <LayoutPageSection>
       <client-only>
-        <div class="px-4 py-4 md:py-12">
+        <div class="px-4 py-4 md:py-12 md:max-w-[80%] md:mx-auto">
+          <h2 class="text-xl font-bold mb-4">
+            {{ t('pages.mall.checkout.billing_detail') }}
+          </h2>
           <div class="grid grid-cols-12 gap-5">
             <div class="col-span-12 lg:col-span-7">
               <div>
-                <form
+                <!-- <form
                   class="personal-information"
                   action="assets/php/contact.php"
-                >
-                  <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-5">
-                    <h2>
-                      {{ t('pages.mall.checkout.billing_detail') }}
-                    </h2>
-                    <div>
-                      <a
-                        class="hyperlink-btn-dark"
-                        href="javascript:void(0)"
-                        @click="isopen = !isopen"
+                > -->
+                <div class="flex justify-center items-center mb-2">
+                  <div>
+                    <a
+                      class="hyperlink-btn-dark flex"
+                      href="javascript:void(0)"
+                      @click="isopen = !isopen"
+                    >
+                      <span class="inline-block">
+                        {{ t('pages.mall.addressbook.title') }}</span
                       >
-                        <Icon name="ri:contacts-book-fill" class="mx-auto" />
-                      </a>
-                    </div>
-                    <div>
-                      <div>
-                        <label class="mb-3 inline-block">{{
-                          t('pages.mall.addressbook.name')
-                        }}</label>
-                        <input
-                          :value="selectedAddressbook?.name"
-                          class="border border-solid border-gray-300 w-full py-1 px-5 mb-5 placeholder-current text-dark h-12 dark:text-gray-300 focus:outline-none text-base"
-                          type="text"
-                          disabled
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <div>
-                        <label class="mb-3 inline-block">{{
-                          t('pages.mall.addressbook.postcode')
-                        }}</label>
-                        <input
-                          :value="selectedAddressbook?.postcode"
-                          class="border border-solid border-gray-300 w-full py-1 px-5 mb-5 placeholder-current text-dark h-12 focus:outline-none text-base dark:text-gray-300"
-                          type="text"
-                          disabled
-                        />
-                      </div>
-                    </div>
-                    <div class="lg:col-span-2">
-                      <div>
-                        <label class="mb-3 inline-block">{{
-                          t('pages.mall.addressbook.address')
-                        }}</label>
-                        <input
-                          :value="selectedAddressbook?.address_first"
-                          class="border border-solid border-gray-300 w-full py-1 px-5 mb-5 placeholder-current text-dark h-12 focus:outline-none text-base dark:text-gray-300"
-                          type="text"
-                          disabled
-                        />
-                        <input
-                          :value="selectedAddressbook?.address_last"
-                          class="border border-solid border-gray-300 w-full py-1 px-5 mb-5 placeholder-current text-dark h-12 focus:outline-none text-base dark:text-gray-300"
-                          type="text"
-                          disabled
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <div>
-                        <label class="mb-3 inline-block">{{
-                          t('pages.mall.addressbook.phone')
-                        }}</label>
-                        <input
-                          :value="selectedAddressbook?.phone"
-                          class="border border-solid border-gray-300 w-full py-1 px-5 mb-5 placeholder-current text-dark h-12 focus:outline-none text-base dark:text-gray-300"
-                          type="text"
-                          disabled
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <div>
-                        <label class="mb-3 inline-block">{{
-                          t('pages.mall.addressbook.email')
-                        }}</label>
-                        <input
-                          :value="selectedAddressbook?.email"
-                          class="border border-solid border-gray-300 w-full py-1 px-5 mb-5 placeholder-current text-dark h-12 focus:outline-none text-base dark:text-gray-300"
-                          type="text"
-                          disabled
-                        />
-                      </div>
-                    </div>
+                      <Icon
+                        name="ri:contacts-book-fill"
+                        class="ml-3 mx-auto inline-block text-2xl"
+                      />
+                    </a>
                   </div>
-                </form>
+                </div>
+                <div>
+                  <MallWidgetDeliveryAddressInfo
+                    v-if="selectedAddressbook"
+                    :address-info="selectedAddressbook"
+                  />
+                  <UAlert
+                    v-else
+                    color="primary"
+                    variant="solid"
+                    :title="
+                      t('pages.mall.addressbook.alert.require_address.title')
+                    "
+                    :description="
+                      t(
+                        'pages.mall.addressbook.alert.require_address.description',
+                      )
+                    "
+                  />
+                </div>
               </div>
             </div>
             <div class="col-span-12 lg:col-span-5 mt-1 mt-lg-0">

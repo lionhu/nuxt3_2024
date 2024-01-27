@@ -61,7 +61,7 @@ watch(Qty, (newVal) => {
           class="w-full bg-gray-200 dark:bg-gray-800 bg-opacity-90 py-4"
         >
           <div
-            class="w-full flex items-start lg:flex-row flex-col justify-center space-x-4"
+            class="w-full flex items-start lg:flex-row flex-col justify-center md:space-x-4"
           >
             <div class="w-full lg:w-1/2">
               <MallWidgetCart
@@ -73,9 +73,9 @@ watch(Qty, (newVal) => {
               class="lg:w-96 md:w-8/12 w-full bg-gray-100 dark:bg-gray-900 h-full"
             >
               <div
-                class="flex flex-col lg:px-8 md:px-7 px-4 lg:py-20 md:py-10 py-6 justify-between"
+                class="flex flex-col lg:px-8 md:px-7 px-4 lg:py-20 md:py-10 justify-between"
               >
-                <div>
+                <!-- <div>
                   <p
                     class="lg:text-4xl text-3xl font-black leading-9 text-gray-800 dark:text-white"
                   >
@@ -93,7 +93,7 @@ watch(Qty, (newVal) => {
                       {{ currencyJPY(Total) }}
                     </p>
                   </div>
-                </div>
+                </div> -->
                 <div>
                   <div
                     class="flex items-center pb-6 justify-between lg:pt-5 pt-20"

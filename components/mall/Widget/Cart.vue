@@ -69,7 +69,7 @@ const operateCartItem = (
       </span>
       <a href="javascript:void(0);" @click="emptyCart">
         <span class="lg:text-2xl text-xl font-black leading-10 text-red-800">
-          <Icon name="material-symbols:delete-rounded" />
+          <Icon name="carbon:shopping-cart-clear" />
         </span>
       </a>
     </div>
@@ -101,9 +101,16 @@ const operateCartItem = (
           >
             {{ item.variation.name }}
           </p>
-          <div class="flex count border border-solid border-gray-300 p-2 h-11">
+        </div>
+        <div class="flex justify-between items-center my-4">
+          <div class="text-md leading-3 text-gray-600 dark:text-white">
+            Price: {{ currencyJPY(item.variation.price) }}
+          </div>
+          <div
+            v-if="editable"
+            class="flex count border border-solid border-gray-300 p-2"
+          >
             <button
-              v-if="editable"
               class="decrement flex-auto w-5 leading-none"
               aria-label="button"
               @click="
@@ -126,7 +133,6 @@ const operateCartItem = (
               class="quantity__input flex-auto w-8 text-center focus:outline-none input-appearance-none"
             />
             <button
-              v-if="editable"
               class="increment flex-auto w-5 leading-none"
               aria-label="button"
               @click="
@@ -143,42 +149,40 @@ const operateCartItem = (
               +
             </button>
           </div>
-        </div>
-        <p class="text-xs leading-3 text-gray-600 dark:text-white pt-2">
-          Price: {{ currencyJPY(item.variation.price) }}
-        </p>
-        <p class="text-xs leading-3 text-gray-600 dark:text-white py-4">
-          Description: {{ item.variation.description?.substring(0, 80) }}
-        </p>
-        <div class="flex items-center justify-between pt-5">
-          <div class="flex itemms-center">
-            <p
-              class="text-sm leading-3 underline text-primary pl-5 cursor-pointer"
-            >
-              <button
-                v-if="editable"
-                class="btn gap-2 flex items-center justify-center"
-                @click="
-                  item.variation &&
-                    operateCartItem(
-                      'remove',
-                      item.product,
-                      item.variation,
-                      item.variation.price,
-                      1,
-                    )
-                "
-              >
-                remove
-                <Icon name="ri:delete-bin-2-fill" />
-              </button>
-            </p>
+          <div v-else>
+            <h2 class="font-bold text-lg">X{{ item.qty }}</h2>
           </div>
-          <p
+        </div>
+        <!-- <p class="text-xs leading-3 text-gray-600 dark:text-white py-4">
+          Description: {{ item.variation.description?.substring(0, 80) }}
+        </p> -->
+        <div class="flex items-center justify-between">
+          <div
+            class="flex itemms-center text-sm leading-3 underline text-primary cursor-pointer"
+          >
+            <button
+              v-if="editable"
+              class="btn gap-2 flex items-center justify-center"
+              @click="
+                item.variation &&
+                  operateCartItem(
+                    'remove',
+                    item.product,
+                    item.variation,
+                    item.variation.price,
+                    1,
+                  )
+              "
+            >
+              remove
+              <Icon name="ri:delete-bin-2-fill" />
+            </button>
+          </div>
+          <div
             class="text-base font-black leading-none text-gray-800 dark:text-white"
           >
             {{ currencyJPY(item.total) }}
-          </p>
+          </div>
         </div>
       </div>
     </div>
