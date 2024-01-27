@@ -84,7 +84,7 @@ const addCart = (product: Product) => {
         :key="randomToken"
         as="div"
         :open="modelValue"
-        class="relative z-100"
+        class="relative z-1000"
         @close="setIsOpen(false)"
       >
         <TransitionChild

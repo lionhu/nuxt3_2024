@@ -25,7 +25,7 @@ const { minProductPrice } = useShop()
     >
       <div class="relative overflow-hidden md:w-1/3">
         <div
-          class="flex z-10 w-12 h-12 rounded-full bg-orange border-2 border-white ring-2 ring-orange absolute top-3 right-3 items-center justify-center"
+          class="flex z-1 w-12 h-12 rounded-full bg-orange border-2 border-white ring-2 ring-orange absolute top-3 right-3 items-center justify-center"
         >
           <span
             class="font-medium uppercase text-sm text-white inline-block py-1 px-2 leading-none"
@@ -38,12 +38,9 @@ const { minProductPrice } = useShop()
           >-11%</span
         >± -->
         <img
-          class="md:absolute w-full md:h-full md:object-cover"
+          class="md:absolute w-full h-auto md:object-cover"
           :src="product.imagesList.thumb"
           alt="product image"
-          loading="lazy"
-          width="432"
-          height="480"
         />
         <!-- actions start -->
         <div
@@ -140,13 +137,16 @@ const { minProductPrice } = useShop()
             >{{ product.name }}
           </a>
         </h4>
-        <p class="text-sm" v-html="product.description"></p>
+        <p
+          class="text-sm h-24 overflow-y-auto"
+          v-html="product.description"
+        ></p>
 
         <h5 class="font-bold text-md leading-none text-orange mt-4 mb-4">
           <!-- <del class="font-normal text-sm mr-1 inline-block">$110.00</del
           > -->
-          {{ minProductPrice(product) }}
-          {{ hasVariation && '~' }}
+          {{ hasVariation ? minProductPrice(product) : '' }}
+          {{ hasVariation ? '~' : '' }}
         </h5>
 
         <ul class="flex items-center">
@@ -158,7 +158,7 @@ const { minProductPrice } = useShop()
               <IconRi:heart-add-fill />
             </a>
           </li> -->
-          <li class="mr-2">
+          <li v-if="minProductPrice(product) !== '0'" class="mr-2">
             <a
               href="#modal-addto-cart"
               class="text-dark flex items-center justify-center text-md hover:(text-white bg-orange border-orange transition-all) border border-solid border-dark px-4 md:px-5 py-3 leading-none dark:(text-orange bg-white) dark:hover:(text-white bg-orange)"

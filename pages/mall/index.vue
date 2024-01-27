@@ -171,32 +171,31 @@ onMounted(() => {
                 </div>
               </div>
 
-              <div class="mt-10 dark:bg-gray-800 bg-gray-50 p-4">
-                <div id="grid" class="shop-tab-content active">
-                  <div class="flex flex-wrap">
-                    <client-only>
-                      <div v-if="gridview" class="grid md:grid-cols-3 gap-4">
-                        <MallCardProductGrid
-                          v-for="(product, idx) in products"
-                          :key="idx"
-                          :product="product"
-                        />
-                      </div>
-                      <div v-else id="list" class="shop-tab-content active">
-                        <div class="flex flex-wrap">
-                          <MallCardProductList
-                            v-for="(product, idx) in products"
-                            :key="idx"
-                            :product="product"
-                          />
-                        </div>
-                      </div>
-                    </client-only>
+              <div class="mt-10 dark:bg-gray-800 bg-gray-50 p-2">
+                <client-only>
+                  <div
+                    v-if="gridview"
+                    class="w-full grid grid-cols-2 md:grid-cols-3 gap-2"
+                  >
+                    <MallCardProductGrid
+                      v-for="(product, idx) in products"
+                      :key="idx"
+                      :product="product"
+                    />
                   </div>
-                </div>
-                <div id="list" class="shop-tab-content" style="display: none">
+                  <div v-else id="list" class="shop-tab-content active">
+                    <div class="flex flex-wrap">
+                      <MallCardProductList
+                        v-for="(product, idx) in products"
+                        :key="idx"
+                        :product="product"
+                      />
+                    </div>
+                  </div>
+                </client-only>
+                <!-- <div id="list" class="shop-tab-content" style="display: none">
                   <div class="flex flex-wrap -mb-7 -px-4"></div>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>

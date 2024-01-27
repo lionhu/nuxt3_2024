@@ -65,6 +65,10 @@ export default <Partial<Config>>{
       maxWidth: {
         '8xl': '90rem',
       },
+      padding: {
+        '1/2': '50%',
+        full: '100%',
+      },
       colors: {
         primary: MyTheme.colors.green,
         // if want to change primary color to blue
