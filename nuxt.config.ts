@@ -96,10 +96,10 @@ export default defineNuxtConfig({
     dirs: [resolve('./stores'), '~/stores', '~/utils'],
   },
   // for nuxt/ui modules
-  ui: {
-    global: true,
-    icons: ['mdi', 'simple-icons']
-  },
+  // ui: {
+  //   global: true,
+  //   icons: ['mdi', 'simple-icons']
+  // },
   pwa: {
     registerType: 'autoUpdate',
     manifest: {

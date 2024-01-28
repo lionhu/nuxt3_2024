@@ -19,12 +19,12 @@ function TriggerAction(action: string, value: any) {
 <template>
   <div class="absolute left-1/2 top-1/3 transform -translate-x-1/2 z-1">
     <ul
-      class="bg-primary shadow rounded-full transition-all h-0 group-hover:h-8 duration-500 overflow-hidden w-fit mx-auto"
+      class="bg-white shadow rounded-full transition-all h-0 group-hover:h-8 group-hover:bg-primary duration-500 overflow-hidden w-fit mx-auto"
     >
       <li class="px-2 py-2">
         <a
           href="javascript:void(0)"
-          class="text-white flex items-center justify-center text-md hover:text-primary"
+          class="text-primary flex items-center justify-center text-md hover:text-white"
           data-tippy-content="Quick View"
           aria-label="Quick View"
           @click="TriggerAction('show_details', true)"
