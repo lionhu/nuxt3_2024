@@ -53,72 +53,69 @@ const showPaymentModal = (e: Event) => {
               v-if="settings && settings.payment.creditcard"
               class="mt-2 p-4"
             >
-              <MallCard>
-                <MallCardContent>
-                  <MallCardTitle>{{
-                    t('pages.mall.payment.pay_by_creditcard')
-                  }}</MallCardTitle>
-                  <div class="w-full flex items-center justify-center">
-                    <a
-                      v-if="ValidCart"
-                      class="hyperlink-btn-dark flex items-center justify-center space-x-2 group"
-                      href="javascript:void(0)"
-                      @click="showPaymentModal"
-                    >
-                      <Icon
-                        name="ri:visa-fill"
-                        class="text-xl text-yellow-400 group-hover:(text-white text-2xl)"
-                      />
-                      <span
-                        >{{ t('pages.mall.payment.pay_by_creditcard') }}({{
-                          currencyJPY(Total)
-                        }})</span
-                      >
-                    </a>
-                  </div>
-                </MallCardContent>
-              </MallCard>
+            <UCard>
+              <template #header>
+                <h2>{{
+                  t('pages.mall.payment.pay_by_creditcard')
+                }}</h2>
+              </template>
+
+
+              <div class="w-full flex items-center justify-center">
+                <a
+                  v-if="ValidCart"
+                  class="hyperlink-btn-dark flex items-center justify-center space-x-2 group"
+                  href="javascript:void(0)"
+                  @click="showPaymentModal"
+                >
+                  <Icon
+                    name="ri:visa-fill"
+                    class="text-xl text-yellow-400 group-hover:(text-white text-2xl)"
+                  />
+                  <span
+                    >{{ t('pages.mall.payment.pay_by_creditcard') }}({{
+                      currencyJPY(Total)
+                    }})</span
+                  >
+                </a>
+              </div>
+            </UCard>
             </div>
             <div v-if="settings && settings.payment.alipay" class="mt-2 p-4">
-              <MallCard>
-                <MallCardContent>
-                  <MallCardTitle>{{
-                    t('pages.mall.payment.alipay')
-                  }}</MallCardTitle>
-                  <div class="w-full h-max-64 flex items-center justify-center">
-                    <img
-                      :src="settings.payment.alipay_imageUrl"
-                      class="h-full"
-                    />
-                  </div>
-                </MallCardContent>
-                <MallCardFooter>
+              <UCard>
+                <template #header>
+                  <h2>{{t('pages.mall.payment.alipay')}}</h2>
+                </template>
+                <div class="w-full h-max-64 flex items-center justify-center">
+                  <img
+                    :src="settings.payment.alipay_imageUrl"
+                    class="h-full"
+                  />
+                </div>
+                <template #footer>
                   <h2 class="text-primary">
                     Please add memo " WA{{ order && order.id }} "
                   </h2>
-                </MallCardFooter>
-              </MallCard>
+                </template>
+              </UCard>
             </div>
             <div v-if="settings && settings.payment.wechat" class="mt-2 p-4">
-              <MallCard>
-                <MallCardContent>
-                  <MallCardTitle>{{
-                    t('pages.mall.payment.wechat')
-                  }}</MallCardTitle>
-                  <div class="w-full h-max-64 flex items-center justify-center">
-                    <img
-                      :src="settings.payment.wechat_imageUrl"
-                      class="h-full"
-                    />
-                  </div>
-                </MallCardContent>
-
-                <MallCardFooter>
+              <UCard>
+                <template #header>
+                  <h2>{{t('pages.mall.payment.wechat')}}</h2>
+                </template>
+                <div class="w-full h-max-64 flex items-center justify-center">
+                  <img
+                    :src="settings.payment.wechat_imageUrl"
+                    class="h-full"
+                  />
+                </div>
+                <template #footer>
                   <h2 class="text-primary">
                     Please add memo " WA{{ order && order.id }} "
                   </h2>
-                </MallCardFooter>
-              </MallCard>
+                </template>
+              </UCard>
             </div>
           </div>
           <div class="grid grid-cols-12 gap-5">
