@@ -65,10 +65,6 @@ export default <Partial<Config>>{
       maxWidth: {
         '8xl': '90rem',
       },
-      padding: {
-        '1/2': '50%',
-        full: '100%',
-      },
       colors: {
         primary: MyTheme.colors.green,
         // if want to change primary color to blue
@@ -94,6 +90,11 @@ export default <Partial<Config>>{
         oswald: ['Oswald', 'sans-serif'],
         grotesk_bold: ['Grotesk-Bold', 'sans-serif'],
       },
+      aspectRatio: {
+        auto: 'auto',
+        square: '1 / 1',
+        video: '16 / 9'
+      }
     },
   },
   shortcuts: {

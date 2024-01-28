@@ -7,7 +7,7 @@ import { getStrapiMedia } from '~~/utils/strapi_medias'
 const props = defineProps({
   product: {
     type: Object as PropType<Product>,
-    default: undefined,
+    default: () => ({}),
   },
 })
 const modalDetailIsopen = ref(false)
@@ -35,7 +35,7 @@ const hasVariation = computed(() => props.product!.variations.length > 0)
     class="w-full max-h-[240px] transition-all hover:shadow-product group relative overflow-hidden"
   >
     <div
-      class="w-full aspect-w-1 aspect-h-1 rounded-xl bg-white relative ring-white ring-opacity-60 ring-offset-2 ring-offset-primary focus:outline-none focus:ring-2"
+      class="w-full aspect-square rounded-xl bg-white relative ring-white ring-opacity-60 ring-offset-2 ring-offset-primary focus:outline-none focus:ring-2"
     >
       <div
         v-if="product.info && product.info.new"
