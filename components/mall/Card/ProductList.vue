@@ -21,7 +21,7 @@ const { minProductPrice } = useShop()
 <template>
   <div v-if="product" class="w-full px-4 mb-7">
     <div
-      class="border border-solid border-gray-300 transition-all hover:shadow-product group relative flex flex-wrap flex-col md:flex-row"
+      class="border border-solid border-gray-300 transition-all hover:shadow-product group relative flex flex-wrap flex-col md:flex-row "
     >
       <div class="relative overflow-hidden md:w-1/3">
         <div

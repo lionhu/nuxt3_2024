@@ -121,14 +121,14 @@ onMounted(() => {
                     <client-only>
                       <div
                         v-if="searchProducts.length > 0"
-                        class="grid grid-cols-3 gap-3"
+                        class="w-full grid grid-cols-2 md:grid-cols-3 gap-3"
                       >
                         <div
                           v-for="(product, idx) in searchProducts"
                           :key="idx"
                           class="my-4 md:my-6 w-full"
                         >
-                          <MallCardProductMeilisearch :product="product" />
+                          <MallCardProductGrid :product="product" />
                         </div>
                       </div>
                     </client-only>

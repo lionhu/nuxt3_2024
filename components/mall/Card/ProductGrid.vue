@@ -32,10 +32,10 @@ const hasVariation = computed(() => props.product!.variations.length > 0)
 <template>
   <div
     v-if="product"
-    class="w-full transition-all hover:shadow-product group relative overflow-hidden"
+    class="w-full max-h-[240px] transition-all hover:shadow-product group relative overflow-hidden"
   >
     <div
-      class="w-full rounded-xl bg-white relative flex items-center ring-white ring-opacity-60 ring-offset-2 ring-offset-primary focus:outline-none focus:ring-2"
+      class="w-full aspect-w-1 aspect-h-1 rounded-xl bg-white relative ring-white ring-opacity-60 ring-offset-2 ring-offset-primary focus:outline-none focus:ring-2"
     >
       <div
         v-if="product.info && product.info.new"
@@ -55,16 +55,18 @@ const hasVariation = computed(() => props.product!.variations.length > 0)
         >
       </div>
       <img
-        class="object-cover object-center w-full"
+        class="w-full h-full object-center object-cover"
         :src="product.imagesList.thumb"
       />
 
       <MallWidgetActionIcons @trigger-action="processAction" />
     </div>
     <div
-      class="p-2 bg-gray-200 shadow absolute left-2 right-2 -bottom-40 group-hover:bottom-2 z-20 transition-all duration-500 ease-linear"
+      class="p-2 bg-gray-700 shadow absolute w-full -bottom-40 group-hover:bottom-0 z-1 transition-all duration-500 ease-linear opacity-90"
     >
-      <h4 class="block text-md hover:text-orange transition-all mb-2">
+      <h4
+        class="block text-white text-sm hover:text-primary transition-all mb-2"
+      >
         {{ product.name }}
       </h4>
     </div>

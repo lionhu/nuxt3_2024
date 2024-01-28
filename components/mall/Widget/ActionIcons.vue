@@ -17,16 +17,14 @@ function TriggerAction(action: string, value: any) {
 }
 </script>
 <template>
-  <div
-    class="absolute left-2/4 top-2/4 transform -translate-x-2/4 -translate-y-2/4 z-10"
-  >
+  <div class="absolute left-1/2 top-1/3 transform -translate-x-1/2 z-1">
     <ul
-      class="flex items-center justify-center bg-white shadow rounded-full h-0 transition-all group-hover:h-16 duration-500 overflow-hidden"
+      class="bg-primary shadow rounded-full transition-all h-0 group-hover:h-8 duration-500 overflow-hidden w-fit mx-auto"
     >
-      <li class="px-4 py-2">
+      <li class="px-2 py-2">
         <a
           href="javascript:void(0)"
-          class="text-dark flex items-center justify-center text-md hover:text-orange"
+          class="text-white flex items-center justify-center text-md hover:text-primary"
           data-tippy-content="Quick View"
           aria-label="Quick View"
           @click="TriggerAction('show_details', true)"
@@ -43,8 +41,8 @@ function TriggerAction(action: string, value: any) {
         >
           <IconRi:heart-add-fill />
         </a>
-      </li> -->
-      <!-- <li class="py-4 pl-7 pr-7 md:py-5 md:pl-8 md:pr-8">
+      </li>
+      <li class="py-4 pl-7 pr-7 md:py-5 md:pl-8 md:pr-8">
         <a
           href="#modal-addto-cart"
           class="text-dark flex items-center justify-center text-md hover:text-orange"

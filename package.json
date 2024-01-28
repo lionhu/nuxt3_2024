@@ -56,6 +56,7 @@
     "@pinia/nuxt": "^0.5.1",
     "@studio-freight/lenis": "^1.0.33",
     "@sweetalert2/theme-bootstrap-4": "^5.0.15",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
     "@vee-validate/i18n": "^4.12.3",
     "@vee-validate/rules": "^4.12.3",
     "@vite-pwa/nuxt": "^0.4.0",

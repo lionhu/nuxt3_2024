@@ -105,7 +105,7 @@ const addCart = (product: Product) => {
         <!-- Full-screen scrollable container -->
         <div class="fixed inset-0 overflow-y-auto">
           <div
-            class="flex min-h-full items-center justify-center p-4 text-center"
+            class="flex min-h-screen w-full items-center justify-center md:p-4 text-center"
           >
             <TransitionChild
               as="template"
@@ -117,7 +117,7 @@ const addCart = (product: Product) => {
               leave-to="opacity-0 scale-95"
             >
               <DialogPanel
-                class="w-full md:max-w-screen-xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
+                class="w-full h-sc md:max-w-screen-xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
               >
                 <DialogTitle
                   as="h3"

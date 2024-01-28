@@ -100,4 +100,5 @@ export default <Partial<Config>>{
     // 'hyperlink-btn-dark':
     //   'block w-full text-center leading-none uppercase text-white text-sm bg-dark px-5 py-5 transition-all hover:bg-orange font-semibold',
   },
+  plugins: [require('@tailwindcss/aspect-ratio')],
 }
