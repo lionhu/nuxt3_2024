@@ -2,7 +2,6 @@
 import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
 import type { PropType } from 'vue'
 import type { Product, Variation } from '~~/types/shop'
-import { getStrapiMedia } from '~~/utils/strapi_medias'
 
 const props = defineProps({
   product: {
@@ -54,7 +53,7 @@ const hasVariation = computed(() => props.product!.variations.length > 0)
       </div>
       <div
         v-if="product.info && product.info.sales"
-        class="absolute top-3 right-3 bg-orange rounded-full h-12 w-12 text-xs text-black text-white flex flex-col items-center justify-center ring-2 ring-white"
+        class="absolute top-3 right-3 bg-orange rounded-full h-12 w-12 text-xs text-black  flex flex-col items-center justify-center ring-2 ring-white"
       >
         <span class="font-bold uppercase block text-white">Sale</span>
         <span class="font-bold uppercase block text-white"

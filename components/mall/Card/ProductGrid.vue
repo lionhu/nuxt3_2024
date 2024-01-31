@@ -2,7 +2,6 @@
 import type { PropType } from 'vue'
 // import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
 import type { Product, Variation } from '~~/types/shop'
-import { getStrapiMedia } from '~~/utils/strapi_medias'
 
 const props = defineProps({
   product: {

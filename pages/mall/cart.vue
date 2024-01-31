@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { storeToRefs } from 'pinia'
-import { getStrapiMedia } from '~~/utils/strapi_medias'
 import { useShopStore } from '~~/stores/use-shop'
 import { capitalize, currencyJPY } from '~~/utils/str'
 import type {
@@ -29,7 +28,7 @@ watch(Qty, (newVal) => {
   <LayoutPageWrapper>
     <LayoutPageHeader>
       <h2
-        class="text-dark text-xl font-bold text-base uppercase mr-5 dark:text-gray-300"
+        class="text-dark text-xl font-bold uppercase mr-5 dark:text-gray-300"
       >
         {{ t('pages.mall.cart.title') }}
       </h2>

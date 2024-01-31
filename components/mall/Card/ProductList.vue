@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue'
 import type { Product, Variation } from '~~/types/shop'
-import { getStrapiMedia } from '~~/utils/strapi_medias'
 import { currencyJPY } from '~~/utils/str'
 const _noew = new Date('2023/4/29 12:33:12')
 
