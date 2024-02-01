@@ -55,7 +55,12 @@ const hasVariation = computed(() => props.product!.variations.length > 0)
       </div>
       <img
         class="w-full h-full object-center object-cover"
-        :src="product.imagesList.thumb"
+        :src="
+          getStrapiMedia(
+            product.imagesList.thumb,
+            'format=webp&resize=320x320&embed',
+          )
+        "
       />
 
       <MallWidgetActionIcons @trigger-action="processAction" />
