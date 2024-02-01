@@ -3,6 +3,8 @@ import type { Product } from 'types/shop'
 
 // composable
 const { t } = useLang()
+const screen = useAwesomeScreen()
+
 const gridview = ref(true)
 const currentCategoryId = ref(0)
 // compiler macro
@@ -24,6 +26,8 @@ const { products, loadShopSettings, getCategoryProducts } = useShop()
 const searchProducts = ref<Array<Product>>([])
 const searchKeyword = ref('')
 const foundProductNum = ref(0)
+const isOpen = ref(false)
+
 const searchProductsByKey = async (keyword: string): Promise<any> => {
   // console.log('searchKeyword', keyword)
   const { search } = useMeilisearch()
@@ -71,15 +75,11 @@ onMounted(() => {
 <template>
   <LayoutPageWrapper>
     <LayoutPageSection>
-      <div
-        class="w-64 h-[243px] p-2.5 flex-col justify-start items-start gap-2.5 inline-flex"
-      >
-        <div class="w-[236px] h-[223px] bg-zinc-300"></div>
-      </div>
       <div class="md:pt-12">
         <div class="w-[90%] mx-auto">
           <div class="grid md:grid-cols-12 gap-y-8 md:space-x-12">
             <div
+              v-if="screen.higherThan('md')"
               class="col-span-12 md:col-span-3 w-full md:max-w-sm px-4 order-last lg:order-first mt-3 md:mt-8 lg:mt-0"
             >
               <div class="mb-3 md:mb-12">
@@ -106,7 +106,19 @@ onMounted(() => {
                 @select="selectCategory"
               ></MallMenuProductCategory>
             </div>
-
+            <div
+              v-else
+              class="col-span-12 md:col-span-3 w-full md:max-w-sm px-4 order-last order-first mt-3 md:mt-8 lg:mt-0"
+            >
+              <UButton block color="primary" @click="isOpen = true"
+                >Button</UButton
+              >
+              <MallMenuProductCategorySidebar
+                v-model="currentCategoryId"
+                :is-open="isOpen"
+                @update:is-open="isOpen = false"
+              />
+            </div>
             <div v-if="searchKeyword" class="col-span-12 md:col-span-9">
               <div
                 class="mt-10 flex flex-col xl:flex-row jusitfy-center items-stretch w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0"
