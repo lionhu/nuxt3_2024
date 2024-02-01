@@ -42,3 +42,6 @@
   supports:
     (1) pm2
     (2) HMR用のポートを追加
+
+#Cannot find name defineProps ts error
+ solved: pnpm install @vue/runtime-dom -w

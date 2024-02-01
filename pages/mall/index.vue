@@ -70,6 +70,11 @@ onMounted(() => {
 <template>
   <LayoutPageWrapper>
     <LayoutPageSection>
+      <div
+        class="w-64 h-[243px] p-2.5 flex-col justify-start items-start gap-2.5 inline-flex"
+      >
+        <div class="w-[236px] h-[223px] bg-zinc-300"></div>
+      </div>
       <div class="md:pt-12">
         <div class="w-[90%] mx-auto">
           <div class="grid md:grid-cols-12 gap-y-8 md:space-x-12">
@@ -204,3 +209,5 @@ onMounted(() => {
     </LayoutPageSection>
   </LayoutPageWrapper>
 </template>
+
+function ref(arg0: boolean) { throw new Error('Function not implemented.') }
