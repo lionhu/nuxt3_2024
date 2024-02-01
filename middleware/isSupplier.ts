@@ -1,5 +1,5 @@
 import { storeToRefs } from 'pinia'
-import { useIdentity } from '~/stores/identity'
+import { useIdentity } from '~~/stores/use-identity'
 
 export default defineNuxtRouteMiddleware((to, _from) => {
   const { setUser, setToken } = useStrapiAuth()

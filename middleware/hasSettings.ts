@@ -1,6 +1,6 @@
-import { useSystemStore } from '~~/stores/system'
-import { useIdentity } from '~~/stores/identity'
 import { storeToRefs } from 'pinia'
+import { useSystemStore } from '~~/stores/system'
+import { useIdentity } from '~~/stores/use-identity'
 
 export default defineNuxtRouteMiddleware((to, _from) => {
   const storeUser = useIdentity()

@@ -27,9 +27,7 @@ watch(Qty, (newVal) => {
 <template>
   <LayoutPageWrapper>
     <LayoutPageHeader>
-      <h2
-        class="text-dark text-xl font-bold uppercase mr-5 dark:text-gray-300"
-      >
+      <h2 class="text-dark text-xl font-bold uppercase mr-5 dark:text-gray-300">
         {{ t('pages.mall.cart.title') }}
       </h2>
     </LayoutPageHeader>

@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-import type { Product } from '~~/types/shop'
+import type { Product } from 'types/shop'
+
 // composable
 const { t } = useLang()
 const gridview = ref(true)

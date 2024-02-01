@@ -7,7 +7,8 @@
     "ignoreDeprecations": "5.0",
     "suppressImplicitAnyIndexErrors": true,
     "types": ["@pinia/nuxt", "@nuxtjs/tailwindcss", "@nuxt/ui"],
-    "baseUrl": "..",
+    "baseUrl": ".",
+
     "paths": {
       "~~": ["."],
       "~~/*": ["./*"],
@@ -19,7 +20,7 @@
       "@/*": ["./*"],
       "assets": ["assets"],
       "types": ["types"],
-      "public": ["public"]
-    }
-  }
+      "public": ["public"],
+    },
+  },
 }
