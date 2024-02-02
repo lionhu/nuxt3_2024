@@ -6,9 +6,9 @@
     "skipLibCheck": true,
     "ignoreDeprecations": "5.0",
     "suppressImplicitAnyIndexErrors": true,
+    "moduleResolution": "Node",
     "types": ["@pinia/nuxt", "@nuxtjs/tailwindcss", "@nuxt/ui"],
     "baseUrl": ".",
-
     "paths": {
       "~~": ["."],
       "~~/*": ["./*"],
