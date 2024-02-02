@@ -108,7 +108,7 @@ onMounted(() => {
             </div>
             <div
               v-else
-              class="col-span-12 md:col-span-3 w-full md:max-w-sm px-4 order-last order-first mt-3 md:mt-8 lg:mt-0"
+              class="col-span-12 md:col-span-3 w-full md:max-w-sm px-4 order-first mt-3 md:mt-8 lg:mt-0"
             >
               <UButton block color="primary" @click="isOpen = true"
                 >Button</UButton
@@ -119,6 +119,7 @@ onMounted(() => {
                 @update:is-open="isOpen = false"
               />
             </div>
+
             <div v-if="searchKeyword" class="col-span-12 md:col-span-9">
               <div
                 class="mt-10 flex flex-col xl:flex-row jusitfy-center items-stretch w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0"
@@ -222,5 +223,3 @@ onMounted(() => {
     </LayoutPageSection>
   </LayoutPageWrapper>
 </template>
-
-function ref(arg0: boolean) { throw new Error('Function not implemented.') }
