@@ -1,52 +1,59 @@
 {
-  "title": "タイトル",
+  "title": "标题",
   "pages": {
     "index": {
-      "header": "ヘット"
+      "header": "表头"
     },
     "auth": {
-      "username": "ユーザー名",
-      "email": "メール",
-      "password": "パスワーク",
-      "passwordConfirm": "パスワード確認",
-      "sign_in_title": "ログイン",
-      "forget_password": "暗証番号忘れ？",
-      "create_account": "アカウント作成",
-      "already_member": "アカウントを持ち、ログイン",
-      "sign_in": "ログイン",
-      "register": "登録",
-      "require_email": "メールアドレスを入力",
-      "check_password_reset_email": "再設定メールをご確認",
-      "invalid_email": "無効なメールアドレス",
-      "password_reset_mail_sent": "パスワード再設定メールを送信した！",
-      "activation_email_sent": "メールを再送いたしました。ご確認ください。",
-      "activation_email_sent_error": "メール送信は失敗しました。",
-      "register_failed": "登録失败！",
-      "successfully_registered": "登録成功！",
-      "reset_password": "パスワード再設定",
-      "password_reseted": "パスワード再設定された"
+      "username": "用户名",
+      "email": "邮箱",
+      "password": "密码",
+      "passwordConfirm": "密码确认",
+      "sign_in_title": "登录",
+      "forget_password": "忘记密码?",
+      "create_account": "新建账户",
+      "already_member": "已经是会员了?",
+      "sign_in": "登录",
+      "register": "注册",
+      "require_email": "请输入您的邮箱",
+      "check_password_reset_email": "请查收密码重置邮件",
+      "invalid_email": "无效邮箱地址",
+      "password_reset_mail_sent": "更换密码的邮件已发送！",
+      "activation_email_sent": "已再次发送邮箱，请查收",
+      "activation_email_sent_error": "发送确认邮箱失败",
+      "register_failed": "注册失败！",
+      "successfully_registered": "注册成功！",
+      "reset_password": "密码重置",
+      "password_reseted": "密码已被重置"
     },
     "mall": {
-      "title": "Misawaオンラインショップ",
-      "search": "検索",
-      "search_placeholder": "キーワードをご入力",
-      "category": "カテゴリー",
-      "found_products": "%{num}見つけた製品",
+      "title": "Misawa在线药房",
+      "search": "搜索",
+      "search_placeholder": "搜索产品关键字",
+      "category": "类别",
+      "found_products": "找到 %{num}件 产品",
       "cart": {
-        "title": "购物车",
+        "title": "ショッピングカート",
         "summary": "一览",
         "subtotal": "小计",
-        "total": "总计",
-        "checkout": "结账"
+        "total": "合計",
+        "checkout": "结账",
+        "place_order": "确认下单"
       },
       "checkout": {
+        "checkout": "结账",
         "billing_detail": "结账信息",
-        "place_order": "确认下单"
+        "place_order": "确认下单",
+        "place_order_processing": "下单处理中..."
       },
       "payment": {
         "title": "结算",
         "delivery": "收件信息",
-        "pay_by_creditcard": "信用卡支付"
+        "pay_by_creditcard": "信用卡支付",
+        "alipay": "支付宝支付",
+        "wechat": "微信支付",
+        "creditcard": "信用卡",
+        "pay": "支付"
       },
       "addressbook": {
         "title": "通讯录",
@@ -58,36 +65,46 @@
         "address_2": "地址2",
         "add_new": "新增",
         "delete": "删除",
-        "select": "选择"
+        "select": "选择",
+        "alert": {
+          "require_address": {
+            "title": "选择邮寄地址",
+            "description": "可以在通讯录里增加或者选择邮寄地址。"
+          }
+        }
       },
       "modals": {
         "product_detail": {
           "removed_successfully": "成功删除",
-          "added_to_cart": "成功添加到购物车。现在有{num}件同款产品"
+          "added_to_cart": "成功添加!购物车现有{num}件同款产品"
         }
       },
+      "order": {
+        "id": "订单号",
+        "amount": "订单金额"
+      },
       "buttons": {
-        "add_to_cart": "カートへ追加"
+        "add_to_cart": "添加至购物车"
       }
     }
   },
   "errors": {
     "auth": {
       "email_not_confirmed": "メール認証されていない",
-      "invalid_username_password": "用户名或者密码错误"
+      "invalid_username_password": "登録情報不正"
     }
   },
   "buttons": {
-    "settings": "設定",
-    "details": "詳細",
-    "delete": "削除",
-    "continue": "決定",
-    "cancel": "キャンセル",
-    "search": "検索",
-    "submit": "送信",
-    "confirm": "確定",
+    "settings": "设置",
+    "details": "详情",
+    "delete": "删除",
+    "continue": "决定",
+    "cancel": "取消",
+    "search": "搜索",
+    "submit": "提交",
+    "confirm": "确认",
     "apply": "申请",
-    "make_sure": "{action}実行？",
-    "successfully_done": "成功!"
+    "make_sure": "确定{action}吗？",
+    "successfully_done": "成功{action}!"
   }
 }

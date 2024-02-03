@@ -89,7 +89,7 @@ watch(Qty, (newVal) => {
                   </div>
                   <nuxt-link
                     to="/mall/checkout"
-                    class="block w-full text-center leading-none uppercase text-white text-sm bg-dark px-5 py-5 transition-all hover:bg-primary font-semibold"
+                    class="hyperlink-btn-dark"
                     refresh
                   >
                     {{ t('pages.mall.cart.place_order') }}
