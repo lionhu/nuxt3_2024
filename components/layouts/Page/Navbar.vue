@@ -20,17 +20,17 @@ const showDrawer = ref(false)
   >
     <!-- content -->
     <div
-      class="flex-1 flex items-center justify-between max-w-screen-2xl mx-auto px-4"
+      class="flex flex-1 items-center justify-between max-w-screen-2xl mx-auto px-4"
     >
       <!-- title -->
       <div>
         <slot name="title">
-          <NuxtLink to="/" class="font-bold text-lg text-primary-500">
+          <NuxtLink to="/" class="font-bold text-lg text-gray-700">
             <Icon
               name="simple-icons:nuxtdotjs"
               class="font-black text-xl font-mono mr-2 inline-block"
             />
-            <span class="capitalize">{{ awesome.name }}</span>
+            <span class="uppercase">{{ awesome.name }}</span>
           </NuxtLink>
         </slot>
       </div>
@@ -47,7 +47,7 @@ const showDrawer = ref(false)
           </template>
         </div>
         <!-- others -->
-        <div class="pl-4 flex space-x-3 text-xl">
+        <div class="flex pl-4 space-x-3 text-xl">
           <!-- todo: feat/localization -->
           <!-- <AwesomeLink
             to="/learning/vee_validate"
@@ -74,7 +74,7 @@ const showDrawer = ref(false)
         class="flex space-x-4 items-center"
         :class="{ 'divide-x divide-gray-500': menus.length > 0 }"
       >
-        <div class="pl-4 flex space-x-3 text-xl">
+        <div class="flex pl-4 space-x-3 text-xl">
           <AwesomeLink
             v-if="awesome?.project?.links?.github"
             class="text-gray-400 hover:text-gray-100"

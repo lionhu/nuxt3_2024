@@ -10,7 +10,8 @@ const dataLoading = useState<boolean>('dataLoading')
       <LayoutPageContent>
         <slot />
       </LayoutPageContent>
-      <LayoutPageFooter class="h-[52px] md:h-[42px]" />
+      <LayoutPageFooter />
+      <!-- <LayoutPageFooter class="h-[52px] md:h-[42px]" /> -->
     </div>
   </div>
 </template>

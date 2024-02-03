@@ -23,9 +23,9 @@ definePageMeta({
 // }))
 // const storeShop = useShopStore()
 const { products, loadShopSettings, getCategoryProducts } = useShop()
-const searchProducts = ref<Array<Product>>([])
+// const searchProducts = ref<Array<Product>>([])
 const searchKeyword = ref('')
-const foundProductNum = ref(0)
+// const foundProductNum = ref(0)
 const isOpen = ref(false)
 
 const searchProductsByKey = async (keyword: string): Promise<any> => {
@@ -59,8 +59,8 @@ watch([searchKeyword, currentCategoryId], async (newvals: any) => {
     console.log('useMeilisearch newKeyword', newKeyword)
     const result = await searchProductsByKey(newKeyword)
 
-    searchProducts.value = result.hits
-    foundProductNum.value = result.nbHits
+    products.value = result.hits
+    // foundProductNum.value = result.nbHits
   }
 })
 onMounted(() => {
@@ -79,121 +79,93 @@ onMounted(() => {
         <div class="w-[90%] mx-auto">
           <div class="grid md:grid-cols-12 gap-y-8 md:space-x-12">
             <div
-              v-if="screen.higherThan('md')"
-              class="col-span-12 md:col-span-3 w-full md:max-w-sm px-4 order-last lg:order-first mt-3 md:mt-8 lg:mt-0"
+              id="category_menu"
+              class="col-span-12 md:col-span-3 w-full md:max-w-sm px-4 order-first lg:order-first mt-3 md:mt-8 lg:mt-0"
             >
-              <div class="mb-3 md:mb-12">
-                <div class="pro-sidebar-search md:mb-20 md:mt-10">
-                  <div class="border relative border-solid border-gray-300">
-                    <input
-                      v-model="searchKeyword"
-                      class="w-full h-12 text-sm py-4 pl-4 pr-16 bg-white text-dark placeholder-current focus:outline-none"
-                      type="search"
-                      name="search"
-                      :placeholder="t('pages.mall.search_placeholder')"
-                    />
-                    <button
-                      class="flex w-12 h-full absolute top-0 right-0 items-center justify-center text-dark text-md border-l border-solid border-gray-300"
-                    >
-                      <Icon name="material-symbols:search" />
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <MallMenuProductCategory
-                v-model="currentCategoryId"
-                @select="selectCategory"
-              ></MallMenuProductCategory>
-            </div>
-            <div
-              v-else
-              class="col-span-12 md:col-span-3 w-full md:max-w-sm px-4 order-first mt-3 md:mt-8 lg:mt-0"
-            >
-              <UButton block color="primary" @click="isOpen = true"
-                >Button</UButton
-              >
-              <MallMenuProductCategorySidebar
-                v-model="currentCategoryId"
-                :is-open="isOpen"
-                @update:is-open="isOpen = false"
-              />
-            </div>
-
-            <div class="col-span-12 md:col-span-9">
-              <MallSectionBannerEvent />
-              <MallSectionBannerSubscribe />
-            </div>
-            <div v-if="searchKeyword" class="col-span-12 md:col-span-9">
-              <div
-                class="flex mt-10 flex-col xl:flex-row jusitfy-center items-stretch w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0"
-              >
-                <div
-                  class="flex flex-col justify-start items-start w-full space-y-4 md:space-y-6 xl:space-y-8"
-                >
-                  <div
-                    class="flex flex-col justify-start items-start dark:bg-gray-800 bg-gray-50 px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full"
-                  >
-                    <p
-                      class="text-lg md:text-xl dark:text-white font-semibold leading-6 xl:leading-5 text-gray-800"
-                    >
-                      {{
-                        t('pages.mall.found_products', { num: foundProductNum })
-                      }}
-                    </p>
-                    <client-only>
-                      <div
-                        v-if="searchProducts.length > 0"
-                        class="w-full grid grid-cols-2 md:grid-cols-3 gap-3"
+              <div v-if="screen.higherThan('md')">
+                <div class="mb-3 md:mb-12">
+                  <div class="pro-sidebar-search md:mb-20 md:mt-10">
+                    <div class="border relative border-solid border-gray-300">
+                      <input
+                        v-model="searchKeyword"
+                        class="w-full h-12 text-sm py-4 pl-4 pr-16 bg-white text-dark placeholder-current focus:outline-none"
+                        type="search"
+                        name="search"
+                        :placeholder="t('pages.mall.search_placeholder')"
+                      />
+                      <button
+                        class="flex w-12 h-full absolute top-0 right-0 items-center justify-center text-dark text-md border-l border-solid border-gray-300"
                       >
-                        <div
-                          v-for="(product, idx) in searchProducts"
-                          :key="idx"
-                          class="my-4 md:my-6 w-full"
-                        >
-                          <MallCardProductGrid :product="product" />
-                        </div>
-                      </div>
-                    </client-only>
+                        <Icon name="material-symbols:search" />
+                      </button>
+                    </div>
                   </div>
                 </div>
+
+                <MallMenuProductCategory
+                  v-model="currentCategoryId"
+                  @select="selectCategory"
+                ></MallMenuProductCategory>
+              </div>
+              <div v-else>
+                <UButton
+                  block
+                  color="gray"
+                  class="uppercase"
+                  @click="isOpen = true"
+                  >Product Category</UButton
+                >
+                <MallMenuProductCategorySidebar
+                  v-model="currentCategoryId"
+                  :is-open="isOpen"
+                  @update:is-open="isOpen = false"
+                />
               </div>
             </div>
-            <div v-else id="shoptab" class="col-span-12 md:col-span-9">
-              <div class="flex flex-wrap justify-between items-center px-4">
-                <div class="flex flex-wrap">
-                  <client-only>
+
+            <div
+              id="category_products"
+              class="col-span-12 md:col-span-9 order-last"
+            >
+              <!-- found products indicator -->
+              <div class="w-full mx-auto px-4 relative">
+                <div class="flex -mx-4 justify-between items-center px-4">
+                  <div class="flex flex-wrap">
                     <p class="my-2 sm:my-0">
                       {{
                         t('pages.mall.found_products', { num: products.length })
                       }}
                     </p>
-                  </client-only>
-                </div>
+                  </div>
 
-                <div>
-                  <ul class="flex shop-tab-nav flex-wrap">
-                    <li class="active">
-                      <a
-                        href="javascript:void(0);"
-                        class="text-base hover:text-orange inline-block py-2 px-2"
-                        @click="gridview = true"
-                      >
-                        <Icon name="ri:function-line" />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="javascript:void(0);"
-                        class="text-base hover:text-orange inline-block py-2 px-2 ml-5"
-                        @click="gridview = false"
-                        ><Icon name="gridicons:list-unordered"
-                      /></a>
-                    </li>
-                  </ul>
+                  <div>
+                    <ul class="flex shop-tab-nav flex-wrap">
+                      <li class="active">
+                        <a
+                          href="javascript:void(0);"
+                          class="text-base hover:text-orange inline-block py-2 px-2"
+                          @click="gridview = true"
+                        >
+                          <Icon name="ri:function-line" />
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="javascript:void(0);"
+                          class="text-base hover:text-orange inline-block py-2 px-2 ml-5"
+                          @click="gridview = false"
+                          ><Icon name="gridicons:list-unordered"
+                        /></a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
 
+              <div class="col-span-12 md:col-span-9">
+                <MallSectionBannerEvent />
+                <MallSectionBannerSubscribe />
+              </div>
               <div class="mt-10 dark:bg-gray-800 bg-gray-50 p-2">
                 <client-only>
                   <div
