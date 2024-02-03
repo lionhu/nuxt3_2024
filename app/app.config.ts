@@ -61,8 +61,11 @@ export default defineAppConfig({
     },
   },
   ui: {
+    // 这里的定义会改变tailwindcss整体的颜色，不单单是Nuxt/UI组件的。
+    // 对于tailwindcss 默认配色以外自定义的配色，要现在tailwind.config.ts
+    // 中先定义后再再下方替换。
     primary: 'purple-heart',
-    gray: 'suva-gray',
+    gray: 'slate',
     button: {
       default: {
         color: 'green',

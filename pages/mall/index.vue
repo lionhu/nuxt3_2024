@@ -84,7 +84,7 @@ onMounted(() => {
             >
               <div class="mb-3 md:mb-12">
                 <div class="pro-sidebar-search md:mb-20 md:mt-10">
-                  <div class="relative border border-solid border-gray-300">
+                  <div class="border relative border-solid border-gray-300">
                     <input
                       v-model="searchKeyword"
                       class="w-full h-12 text-sm py-4 pl-4 pr-16 bg-white text-dark placeholder-current focus:outline-none"
@@ -93,7 +93,7 @@ onMounted(() => {
                       :placeholder="t('pages.mall.search_placeholder')"
                     />
                     <button
-                      class="w-12 h-full absolute top-0 right-0 flex items-center justify-center text-dark text-md border-l border-solid border-gray-300"
+                      class="flex w-12 h-full absolute top-0 right-0 items-center justify-center text-dark text-md border-l border-solid border-gray-300"
                     >
                       <Icon name="material-symbols:search" />
                     </button>
@@ -120,9 +120,13 @@ onMounted(() => {
               />
             </div>
 
+            <div class="col-span-12 md:col-span-9">
+              <MallSectionBannerEvent />
+              <MallSectionBannerSubscribe />
+            </div>
             <div v-if="searchKeyword" class="col-span-12 md:col-span-9">
               <div
-                class="mt-10 flex flex-col xl:flex-row jusitfy-center items-stretch w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0"
+                class="flex mt-10 flex-col xl:flex-row jusitfy-center items-stretch w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0"
               >
                 <div
                   class="flex flex-col justify-start items-start w-full space-y-4 md:space-y-6 xl:space-y-8"
@@ -168,7 +172,7 @@ onMounted(() => {
                 </div>
 
                 <div>
-                  <ul class="shop-tab-nav flex flex-wrap">
+                  <ul class="flex shop-tab-nav flex-wrap">
                     <li class="active">
                       <a
                         href="javascript:void(0);"

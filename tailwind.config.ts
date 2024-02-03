@@ -43,7 +43,7 @@ const MyTheme = {
       '800': '#BB0000',
       '900': '#830000',
     },
-    'suva': {
+    suva: {
       '50': '#f6f6f7',
       '100': '#efeff0',
       '200': '#e1e1e4',
@@ -56,7 +56,7 @@ const MyTheme = {
       '900': '#58555a',
       '950': '#333234',
     },
-    'tango': {
+    tango: {
       '50': '#fef7ee',
       '100': '#fcedd8',
       '200': '#f9d6af',
@@ -68,8 +68,8 @@ const MyTheme = {
       '800': '#91371b',
       '900': '#752f19',
       '950': '#3f150b',
-     },
-     'purpleheart': {
+    },
+    purpleheart: {
       '50': '#fbf3ff',
       '100': '#f4e4ff',
       '200': '#ebcdff',
@@ -81,7 +81,7 @@ const MyTheme = {
       '800': '#8208d4',
       '900': '#61089b',
       '950': '#430076',
-     },
+    },
   },
 }
 
@@ -100,21 +100,33 @@ export default <Partial<Config>>{
     'docs/content/**/*.md',
   ],
   theme: {
+    fontFamily: {
+      body: [
+        'ubuntu',
+        'ヒラギノ角ゴシック',
+        'メイリオ',
+        'Meiryo',
+        'MS Ｐゴシック',
+        'MS PGothic',
+        'sans-serif',
+        'YuGothic',
+        'Yu Gothic',
+      ],
+    },
     extend: {
       maxWidth: {
         '8xl': '90rem',
       },
       colors: {
-        'tango': MyTheme.colors.tango,
-         'purple-heart': MyTheme.colors.purpleheart,
-         'suva-gray':MyTheme.colors.suva,
+        tango: MyTheme.colors.tango,
+        'purple-heart': MyTheme.colors.purpleheart,
+        'suva-gray': MyTheme.colors.suva,
         // if want to change primary color to blue
         // primary: MyTheme.colors.blue,
-        green: MyTheme.colors.green,
-        blue: MyTheme.colors.blue,
-        red: MyTheme.colors.red,
-        slate: colors.slate,
-        dark: 'rgb(31 34 38)',
+        // green: MyTheme.colors.green,
+        // blue: MyTheme.colors.blue,
+        // red: MyTheme.colors.red,
+        // slate: colors.slate,
 
         NEW: MyTheme.colors.red['700'],
         RECRUITING: 'rgb(217 119 6)',
@@ -134,8 +146,8 @@ export default <Partial<Config>>{
       aspectRatio: {
         auto: 'auto',
         square: '1 / 1',
-        video: '16 / 9'
-      }
+        video: '16 / 9',
+      },
     },
   },
   shortcuts: {
