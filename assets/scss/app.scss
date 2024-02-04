@@ -61,6 +61,6 @@ html.dark {
 // body {
 //   @apply dark:bg-black dark:text-white;
 // }
-// .hyperlink-btn-dark {
-//   @apply block w-full text-center leading-none uppercase text-white text-sm bg-dark px-5 py-3 transition-all hover:bg-primary font-semibold;
-// }
+.hyperlink-btn-dark {
+  @apply block w-full text-center leading-none uppercase text-white text-sm bg-gray-900 px-5 py-3 transition-all hover:bg-gray-600 font-semibold;
+}

@@ -126,6 +126,7 @@ export default <Partial<Config>>{
         // green: MyTheme.colors.green,
         // blue: MyTheme.colors.blue,
         // red: MyTheme.colors.red,
+        dark: MyTheme.colors.red,
         // slate: colors.slate,
 
         NEW: MyTheme.colors.red['700'],
