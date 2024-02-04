@@ -75,6 +75,7 @@ onMounted(() => {
 <template>
   <LayoutPageWrapper>
     <LayoutPageSection>
+      <WidgetButtonsLoading :size="8" :loading="true" />
       <div class="md:pt-12">
         <div class="w-[90%] mx-auto">
           <div class="grid md:grid-cols-12 gap-y-8 md:space-x-12">

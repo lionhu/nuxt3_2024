@@ -15,4 +15,43 @@
   // 	],
   // 	"description": "Log output to console"
   // }
+  "Nuxt vue file base": {
+    "scope": "javascript,vue,typescript",
+    "prefix": "nxbase",
+    "body": [
+      "<script lang=\"ts\" setup>",
+      "$1"
+      "</script>"
+      "<template>",
+      "<div>",
+      "$2",
+      "</div>",
+      "</template>"
+     "<style scoped lang=\"scss\"></style>"
+    ],
+    "description": "Log output to console",
+  },
+  "Nuxt define props": {
+    "scope": "javascript,vue,typescript",
+    "prefix": "nxprops",
+    "body": [
+      "const props = defineProps({",
+      "  modelValue: {",
+      "    type: $1,",
+      "    default: $2,",
+      "  },",
+      "})"
+    ],
+    "description": "Log output to console",
+  },
+  "Nuxt useSyncProps": {
+    "scope": "javascript,vue,typescript",
+    "prefix": "nxsyncprops",
+    "body": [
+      "const emit = defineEmits(['update:modelValue'])",
+      "const checked = useSyncProps<$1>(props, 'modelValue$2', emit)",
+      "// emit('update:modelValue', target.checked)",
+    ],
+    "description": "Log output to console",
+  },
 }
