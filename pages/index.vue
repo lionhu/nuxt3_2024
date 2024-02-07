@@ -135,16 +135,41 @@ await graphql<{
 
 <template>
   <LayoutPageWrapper>
-    <LayoutPageSectionHero>
-      <h1>{{ $t('pages.index.header') }}</h1>
-    </LayoutPageSectionHero>
-    <div class="app">
-      <FullCalendar :options="calendarOptions" />
-    </div>
-    <WidgetGsapProfileList />
-    <WidgetGsapGallery />
-    <LayoutPageSection>
-      <client-only>
+    <LayoutPageSection :normal="true">
+      <div class="container w-full py-[2rem] mx-auto bg-gray-200">
+        <div class="container relative w-full my-32">
+          <div class="h-full max-w-lg px-4 mx-auto bg-green-300 z-100">
+            <div class="w-full mx-auto mb-12 text-center bg-red-400">
+              <span class="block mb-4">Small business solutions</span>
+              <h2 class="text-4xl leading-tight font-ubuntu">
+                Turn online shoppers into
+                <span class="block text-green-500">lifetime customers</span>
+              </h2>
+            </div>
+          </div>
+
+          <img
+            src="http://localhost:40000/https://library.pinegrow.com/pinekit/assets/svg/components/three-arrows-2.svg"
+            class="max-w-[18vw] absolute top-0 -left-12"
+          />
+          <img
+            src="http://localhost:40000/https://library.pinegrow.com/pinekit/assets/svg/components/three-arrows-1.svg"
+            alt=""
+            class="max-w-[18vw] absolute top-0 -right-12"
+          />
+        </div>
+      </div>
+    </LayoutPageSection>
+    <!-- <client-only>
+      <LayoutPageSectionHero>
+        <h1>{{ $t('pages.index.header') }}</h1>
+      </LayoutPageSectionHero>
+      <div class="app">
+        <FullCalendar :options="calendarOptions" />
+      </div>
+      <WidgetGsapProfileList />
+      <WidgetGsapGallery />
+      <LayoutPageSection>
         <h2>Calendar</h2>
         <VCalendar v-model="date" />
         <h2>Date Picker</h2>
@@ -160,8 +185,8 @@ await graphql<{
           <h1 class="text-4xl font-ubuntu text-slate-900">Ubuntu</h1>
           <h1 class="text-4xl font-sacramento text-slate-900">Sacramento</h1>
         </div>
-      </client-only>
-    </LayoutPageSection>
+      </LayoutPageSection>
+    </client-only> -->
   </LayoutPageWrapper>
 </template>
 <style scoped lang="scss">
