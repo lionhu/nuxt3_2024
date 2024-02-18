@@ -1,7 +1,5 @@
 import { LanguageManager } from './lang'
 export { gsap, ScrollTrigger, Flip, Observer, TextPlugin } from 'gsap/all'
-export { SplitText } from 'gsap-trial/SplitText'
-
 
 export function AppSetup() {
   // use language manager

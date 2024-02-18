@@ -65,7 +65,6 @@
     "chart.js": "^4.4.1",
     "floating-vue": "^5.2.0",
     "gsap": "^3.12.4",
-    "gsap-trial": "^3.12.4",
     "nuxt-headlessui": "^1.1.4",
     "nuxt-icon": "^0.6.7",
     "nuxt-swiper": "^1.2.2",
