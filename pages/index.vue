@@ -149,11 +149,11 @@ await graphql<{
           </div>
 
           <img
-            src="http://localhost:40000/https://library.pinegrow.com/pinekit/assets/svg/components/three-arrows-2.svg"
+            src="https://library.pinegrow.com/pinekit/assets/svg/components/three-arrows-2.svg"
             class="max-w-[18vw] absolute top-0 -left-12"
           />
           <img
-            src="http://localhost:40000/https://library.pinegrow.com/pinekit/assets/svg/components/three-arrows-1.svg"
+            src="https://library.pinegrow.com/pinekit/assets/svg/components/three-arrows-1.svg"
             alt=""
             class="max-w-[18vw] absolute top-0 -right-12"
           />
